@@ -51,4 +51,4 @@ TgCrypto
 register
 bing_image_downloader
 progress
-ffmpeg
+ffmpeg-python
