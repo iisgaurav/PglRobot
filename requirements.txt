@@ -52,7 +52,7 @@ register
 bing_image_downloader
 progress
 ffmpeg
-avprobe
+avconv
 
 
 
