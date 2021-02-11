@@ -33,7 +33,24 @@ cachetools
 ujson
 pretty_errors
 cachetools
-pytz
+nekos.py
+pymongo
+dnspython
+spotdl
+gtts
+pandas
+fontTools
+youtube_dl
+validators
+pySmartDL
+pybase64
 hachoir
+pytz
+pyrogram>=1.0.7
+TgCrypto
+register
+bing_image_downloader
+progress
+
 
 
