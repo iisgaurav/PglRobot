@@ -73,16 +73,15 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hello {}, my name is {}! 
+Hi {}, my name is {}! 
 I am an Anime themed group management bot.
-I specialize in managing anime and similar themed groups.
+Build by weebs for weebs, I specialize in managing anime and similar themed groups.
 You can find my list of available commands with /help.
-POWERED BY - @gauravv_03
 """
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
-I'm a Hero For Fun and help admins manage their groups with One Punch! Have a look at the following for an idea of some of \
+I'm a Heroine For Fun and help admins manage their groups with One Punch! Have a look at the following for an idea of some of \
 the things I can help you with.
 
 *Main* commands available:
@@ -101,12 +100,12 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-PglRobot_IMG = "https://telegra.ph/file/53c61643178f17a5af720.jpg"
+SAITAMA_IMG = "https://telegra.ph/file/53c61643178f17a5af720.jpg"
 
-DONATE_STRING = """Hello, glad to hear you want to donate!
+DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @gauravv_03 \
  Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at @PglRobotSupport."""
+ Those who cannot provide monetary support are welcome to help us develop the bot at @OnePunchDev."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -119,7 +118,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("PglRobot.modules." + module_name)
+    imported_module = importlib.import_module("SaitamaRobot.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -213,27 +212,41 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                PglRobot_IMG,
+                SAITAMA_IMG,
                 PM_START_TEXT.format(
                     escape_markdown(first_name), escape_markdown(context.bot.first_name)
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[
+                    [
+                        [
                             InlineKeyboardButton(
-                                text="☑️ Add PglRobot to your group",
+                                text="Add PglRobot",
                                 url="t.me/{}?startgroup=true".format(
-                                    context.bot.username))
+                                    context.bot.username
+                                ),
+                            )
                         ],
                         [
                             InlineKeyboardButton(
-                                text="🚑 Support Group",
-                                url=f"https://t.me/{SUPPORT_CHAT}"),
+                                text="Support Group",
+                                url=f"https://t.me/{SUPPORT_CHAT}",
+                            ),
                             InlineKeyboardButton(
                                 text="🔔 Updates Channel",
-                                url="https://t.me/PglRobotUpdates")
-                        ]]))
+                                url="https://t.me/PglRobotUpdates",
+                            ),
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                text="Source code",
+                                url="https://github.com/gaurav-25/PglRobot",
+                            )
+                        ],
+                    ]
+                ),
+            )
     else:
         update.effective_message.reply_text(
             "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
