@@ -51,6 +51,8 @@ TgCrypto
 register
 bing_image_downloader
 progress
+ffprobe
+avprobe
 
 
 
