@@ -23,13 +23,13 @@ if is_module_loaded(FILENAME):
             update: Update,
             context: CallbackContext,
             job_queue: JobQueue = None,
-            *self.args,
-            **self.kwargs,
+            *args,
+            **kwargs,
         ):
             if not job_queue:
-                result = func(update, context, *self.args, **self.kwargs)
+                result = func(update, context, *args, **kwargs)
             else:
-                result = func(update, context, job_queue, *self.args, **self.kwargs)
+                result = func(update, context, job_queue, *args, **kwargs)
 
             chat = update.effective_chat
             message = update.effective_message
