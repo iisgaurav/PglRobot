@@ -73,10 +73,11 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hi {}, my name is {}! 
+Hello {}, my name is {}! 
 I am an Anime themed group management bot.
-Build by weebs for weebs, I specialize in managing anime and similar themed groups.
+I specialize in managing anime and similar themed groups.
 You can find my list of available commands with /help.
+POWERED BY - @gauravv_03
 """
 
 HELP_STRINGS = """
@@ -100,12 +101,12 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-PglRobot_IMG = "https://telegra.ph/file/46e6d9dfcb3eb9eae95d9.jpg"
+PglRobot_IMG = "https://telegra.ph/file/53c61643178f17a5af720.jpg"
 
-DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project via [Paypal](ko-fi.com/sawada) or by contacting @Sawada \
+DONATE_STRING = """Hello, glad to hear you want to donate!
+ You can support the project by contacting @gauravv_03 \
  Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at @OnePunchDev."""
+ Those who cannot provide monetary support are welcome to help us develop the bot at @PglRobotSupport."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -235,20 +236,8 @@ def start(update: Update, context: CallbackContext):
                             ),
                             InlineKeyboardButton(
                                 text="🔔 Updates Channel",
-                                url="https://t.me/OnePunchUpdates",
+                                url="https://t.me/PglRobotUpdates",
                             ),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="🧾 Getting started guide",
-                                url="https://t.me/OnePunchUpdates/29",
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="🗄 Source code",
-                                url="https://github.com/AnimeKaizoku/PglRobot",
-                            )
                         ],
                     ]
                 ),
