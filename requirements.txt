@@ -34,5 +34,6 @@ ujson
 pretty_errors
 cachetools
 pytz
+hachoir
 
 
