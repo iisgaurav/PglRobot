@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://telegra.ph/file/53c61643178f17a5af720.jpg">
+  <img src="https://telegra.ph/file/06129d917642f323f77a3.jpg">
 </p>
 
 # PglRobot 
