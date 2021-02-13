@@ -75,13 +75,13 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 I am an Anime themed group management bot.
-Build by weebs for weebs, I specialize in managing anime and similar themed groups.
+I specialize in managing anime and similar themed groups.
 You can find my list of available commands with /help.
 """
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
-I'm a Hero For Fun and help admins manage their groups with One Punch! Have a look at the following for an idea of some of \
+I'm a Heroine For Fun and help admins manage their groups with One Punch! Have a look at the following for an idea of some of \
 the things I can help you with.
 
 *Main* commands available:
@@ -100,10 +100,10 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-PglRobot_IMG = "https://telegra.ph/file/46e6d9dfcb3eb9eae95d9.jpg"
+SAITAMA_IMG = "https://telegra.ph/file/53c61643178f17a5af720.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project via [Paypal](ko-fi.com/sawada) or by contacting @Sawada \
+ You can support the project by contacting @gauravv_03 \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at @OnePunchDev."""
 
@@ -212,7 +212,7 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_photo(
-                PglRobot_IMG,
+                SAITAMA_IMG,
                 PM_START_TEXT.format(
                     escape_markdown(first_name), escape_markdown(context.bot.first_name)
                 ),
@@ -222,7 +222,7 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="☑️ Add PglRobot to your group",
+                                text="Add PglRobot",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
@@ -230,24 +230,18 @@ def start(update: Update, context: CallbackContext):
                         ],
                         [
                             InlineKeyboardButton(
-                                text="🚑 Support Group",
+                                text="Support Group",
                                 url=f"https://t.me/{SUPPORT_CHAT}",
                             ),
                             InlineKeyboardButton(
-                                text="🔔 Updates Channel",
-                                url="https://t.me/OnePunchUpdates",
+                                text="Updates Channel",
+                                url="https://t.me/PglRobotUpdates",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="🧾 Getting started guide",
-                                url="https://t.me/OnePunchUpdates/29",
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="🗄 Source code",
-                                url="https://github.com/AnimeKaizoku/PglRobot",
+                                text="Source code",
+                                url="https://github.com/gaurav-25/PglRobot",
                             )
                         ],
                     ]
