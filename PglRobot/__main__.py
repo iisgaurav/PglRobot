@@ -105,7 +105,7 @@ SAITAMA_IMG = "https://telegra.ph/file/06129d917642f323f77a3.jpg"
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @gauravv_03 \
  Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at @OnePunchDev."""
+ Those who cannot provide monetary support are welcome to help us develop the bot at @PglRobotSupport."""
 
 IMPORTED = {}
 MIGRATEABLE = []
