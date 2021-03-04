@@ -78,7 +78,6 @@ I am an Superpower Full group management bot.
 I specialize in managing anime and similar themed groups.
 You can find my list of available commands with /help.
 
-Managed By @Gauravv_03
 """
 
 HELP_STRINGS = """
