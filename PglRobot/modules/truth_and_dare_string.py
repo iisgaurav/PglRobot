@@ -17,6 +17,7 @@ TRUTH = (
     "After watching rent a girlfriend did u also got interest im gf booking online?",
     "Have you ever lied about your age to participate in a contest?",
     "Have you ever been caught checking someone out?",
+    "How much you love Gaurav",
 )
 
 DARE = (
