@@ -74,7 +74,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am an Superpower Full group management bot.
+I am an Superpowerfull Full group management bot.
 I specialize in managing anime and similar themed groups.
 You can find my list of available commands with /help.
 
@@ -82,7 +82,7 @@ You can find my list of available commands with /help.
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
-I'm a Heroine For Fun and help admins manage their groups with One Punch! Have a look at the following for an idea of some of \
+I'm a Heroine For Fun and help admins manage their groups! Have a look at the following for an idea of some of \
 the things I can help you with.
 
 *Main* commands available:
