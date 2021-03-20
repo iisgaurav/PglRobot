@@ -8,13 +8,17 @@ from pyrogram.errors.exceptions.bad_request_400 import (
     UserNotParticipant,
 )
 from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup
-#from PglRobot import OWNER_ID as SUDO_USERS
+
+# from PglRobot import OWNER_ID as SUDO_USERS
 from PglRobot import pgram
 from PglRobot.modules.sql import forceSubscribe_sql as sql
+
 logging.basicConfig(level=logging.INFO)
 static_data_filter = filters.create(
     lambda _, __, query: query.data == "onUnMuteRequest"
 )
+
+
 @pgram.on_callback_query(static_data_filter)
 def _onUnMuteRequest(client, cb):
     user_id = cb.from_user.id
@@ -58,6 +62,8 @@ def _onUnMuteRequest(client, cb):
                     text="❗ Warning! Don't press the button when you cn talk.",
                     show_alert=True,
                 )
+
+
 @pgram.on_message(filters.text & ~filters.private & ~filters.edited, group=1)
 def _check_member(client, message):
     chat_id = message.chat.id
@@ -107,6 +113,8 @@ def _check_member(client, message):
                     chat_id,
                     text=f"❗ **I not an admin of @{channel} channel.**\n__Give me admin of that channel and retry.\n#Ending FSub...__",
                 )
+
+
 @pgram.on_message(filters.command(["forcesubscribe", "forcesub"]) & ~filters.private)
 def config(client, message):
     user = client.get_chat_member(message.chat.id, message.from_user.id)
@@ -163,6 +171,8 @@ def config(client, message):
         message.reply_text(
             "❗ **Group Creator Required**\n__You have to be the group creator to do that.__"
         )
+
+
 __help__ = """
 *ForceSubscribe:*
 *Channel Manageer Inbuilt*
