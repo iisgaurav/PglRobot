@@ -32,7 +32,6 @@ pyrate-limiter
 cachetools
 ujson
 pretty_errors
-cachetools
 nekos.py
 pymongo
 dnspython
