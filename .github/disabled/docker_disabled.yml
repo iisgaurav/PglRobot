@@ -24,7 +24,7 @@ jobs:
 
         with:
 
-          name:  gaurav-25/PglRobot
+          name:  animekaizoku/PglRobot
 
           username: ${{ secrets.DOCKER_USERNAME }}
 

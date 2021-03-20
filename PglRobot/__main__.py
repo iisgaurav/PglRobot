@@ -77,14 +77,12 @@ Hi {}, my name is {}!
 I am an Superpowerfull Full group management bot.
 I specialize in managing anime and similar themed groups.
 You can find my list of available commands with /help.
-
 """
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
 I'm a Heroine For Fun and help admins manage their groups! Have a look at the following for an idea of some of \
 the things I can help you with.
-
 *Main* commands available:
  • /help: PM's you this message.
  • /help <module name>: PM's you info about that module.
@@ -577,15 +575,15 @@ def donate(update: Update, context: CallbackContext):
     bot = context.bot
     if chat.type == "private":
         update.effective_message.reply_text(
-            DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
-        )
+            DONATE_STRING, 
+            parse_mode=ParseMode.MARKDOWN, 
+            disable_web_page_preview=True)
 
         if OWNER_ID != 1100735944 and DONATION_LINK:
             update.effective_message.reply_text(
                 "You can also donate to the person currently running me "
                 "[here]({})".format(DONATION_LINK),
-                parse_mode=ParseMode.MARKDOWN,
-            )
+                parse_mode=ParseMode.MARKDOWN)
 
     else:
         try:
@@ -593,16 +591,13 @@ def donate(update: Update, context: CallbackContext):
                 user.id,
                 DONATE_STRING,
                 parse_mode=ParseMode.MARKDOWN,
-                disable_web_page_preview=True,
-            )
+                disable_web_page_preview=True)
 
             update.effective_message.reply_text(
-                "I've PM'ed you about donating to my creator!"
-            )
+                "I've PM'ed you about donating to my creator!")
         except Unauthorized:
             update.effective_message.reply_text(
-                "Contact me in PM first to get donation information."
-            )
+                "Contact me in PM first to get donation information.")
 
 
 def migrate_chats(update: Update, context: CallbackContext):
