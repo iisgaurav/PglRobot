@@ -76,7 +76,7 @@ PM_START_TEXT = """
 Hi {}, my name is {}! 
 I am an Super Powerfull Full group management bot.
 You can find my list of available commands with /help.
-Maintained by [Gaurav](t.me/Gauravv_03) ❤
+Maintained by [🖤「 𝗣𝗲𝗿𝗳𝗲𝗰𝘁™ 」🖤](t.me/PglZone_Owner) ❤
 """
 
 HELP_STRINGS = """
