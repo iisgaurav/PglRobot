@@ -75,8 +75,8 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 I am an Superpowerfull Full group management bot.
-I specialize in managing anime and similar themed groups.
 You can find my list of available commands with /help.
+I'm a group manager bot. Maintained by [Gaurav](t.me/Gauravv_03) ❤
 """
 
 HELP_STRINGS = """
@@ -225,20 +225,17 @@ def start(update: Update, context: CallbackContext):
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
-                            ),
-                             InlineKeyboardButton(
-                                text="🔥 Creater",
-                                url="https://t.me/Gauravv_03",
                             )
+                             
                         ],
                         [
                             InlineKeyboardButton(
                                 text="🆘 Support Group",
                                 url=f"https://t.me/{SUPPORT_CHAT}",
                             ),
-                            InlineKeyboardButton(
-                                text="✅ Updates Channel",
-                                url="https://t.me/PglRobotUpdates",
+                           InlineKeyboardButton(
+                                text="🔥 Creater",
+                                url="https://t.me/Gauravv_03",
                             ),
                         ],
                         [
@@ -256,7 +253,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "I'm awake already!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            "Hello I am Here!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
