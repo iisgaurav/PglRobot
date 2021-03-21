@@ -17,8 +17,6 @@ psutil
 aiohttp>=2.2.5
 Pillow>=4.2.0
 CurrencyConverter
-#googletrans
-google_trans_new
 jikanpy
 speedtest-cli
 coffeehouse
@@ -52,3 +50,12 @@ register
 bing_image_downloader
 progress
 ffmpeg
+tswift
+youtube-dl
+google-api-python-client
+youtube-search-python
+bs4
+pytz
+gtts
+nekos.py
+
