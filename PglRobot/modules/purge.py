@@ -1,21 +1,20 @@
+from PglRobot.modules.helper_funcs.telethn.chatstatus import (
+    can_delete_messages, user_is_admin)
+from PglRobot import telethn
 import time
 from telethon import events
 
-from PglRobot import telethn
-from PglRobot.modules.helper_funcs.telethn.chatstatus import (
-    can_delete_messages,
-    user_is_admin,
-)
 
-
+@telethn.on(events.NewMessage(pattern="^[!/]purge$"))
 async def purge_messages(event):
     start = time.perf_counter()
     if event.from_id is None:
         return
 
     if not await user_is_admin(
-        user_id=event.sender_id, message=event
-    ) and event.from_id not in [1087968824]:
+            user_id=event.from_id, message=event) and event.from_id not in [
+                1087968824
+            ]:
         await event.reply("Only Admins are allowed to use this command")
         return
 
@@ -25,7 +24,8 @@ async def purge_messages(event):
 
     reply_msg = await event.get_reply_message()
     if not reply_msg:
-        await event.reply("Reply to a message to select where to start purging from.")
+        await event.reply(
+            "Reply to a message to select where to start purging from.")
         return
     messages = []
     message_id = reply_msg.id
@@ -38,22 +38,21 @@ async def purge_messages(event):
             await event.client.delete_messages(event.chat_id, messages)
             messages = []
 
-    try:
-        await event.client.delete_messages(event.chat_id, messages)
-    except:
-        pass
+    await event.client.delete_messages(event.chat_id, messages)
     time_ = time.perf_counter() - start
     text = f"Purged Successfully in {time_:0.2f} Second(s)"
-    await event.respond(text, parse_mode="markdown")
+    await event.respond(text, parse_mode='markdown')
 
 
+@telethn.on(events.NewMessage(pattern="^[!/]del$"))
 async def delete_messages(event):
     if event.from_id is None:
         return
 
     if not await user_is_admin(
-        user_id=event.sender_id, message=event
-    ) and event.from_id not in [1087968824]:
+            user_id=event.from_id, message=event) and event.from_id not in [
+                1087968824
+            ]:
         await event.reply("Only Admins are allowed to use this command")
         return
 
@@ -69,6 +68,15 @@ async def delete_messages(event):
     del_message = [message, event.message]
     await event.client.delete_messages(chat, del_message)
 
+@telethn.on(events.NewMessage(pattern="^[!/]tagall$"))
+async def tagging_powerful(event):
+    mentions = "📢 Mentioned All"
+    chat = await event.get_input_chat()
+    async for x in telethn.iter_participants(chat, 100):
+        mentions += f"[\u2063](tg://user?id={x.id})"
+    await event.reply(mentions)
+    await event.delete()
+
 
 __help__ = """
 *Admin only:*
@@ -77,12 +85,4 @@ __help__ = """
  - /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
 """
 
-PURGE_HANDLER = purge_messages, events.NewMessage(pattern="^[!/]purge$")
-DEL_HANDLER = delete_messages, events.NewMessage(pattern="^[!/]del$")
-
-telethn.add_event_handler(*PURGE_HANDLER)
-telethn.add_event_handler(*DEL_HANDLER)
-
 __mod_name__ = "Purges"
-__command_list__ = ["del", "purge"]
-__handlers__ = [PURGE_HANDLER, DEL_HANDLER]
