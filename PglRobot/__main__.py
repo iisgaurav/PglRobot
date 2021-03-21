@@ -75,8 +75,8 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 I am an Superpowerfull Full group management bot.
+I specialize in managing anime and similar themed groups.
 You can find my list of available commands with /help.
-i'm a group manager bot. Maintained by @Gauravv_03 ❤
 """
 
 HELP_STRINGS = """
@@ -102,7 +102,8 @@ And the following:
 PglRobot_IMG = "https://telegra.ph/file/06129d917642f323f77a3.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @gauravv_03.
+ You can support the project by contacting @gauravv_03 \
+ Supporting isnt always financial!
  Those who cannot provide monetary support are welcome to help us develop the bot at @PglRobotSupport.
  [PayPal](paypal.me/gauravv03)"""
 
@@ -221,7 +222,7 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Add ✯ 𝙋𝙂𝙇 𝙍𝙊𝘽𝙊𝙏 ✯ In Your Group",
+                                text="Add PglRobot",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
@@ -239,12 +240,8 @@ def start(update: Update, context: CallbackContext):
                         ],
                         [
                             InlineKeyboardButton(
-                                text="☑️ Source code",
+                                text="Source code",
                                 url="https://github.com/gaurav-25/PglRobot",
-                            ),
-                            InlineKeyboardButton(
-                                text="PglZone ChatGroup",
-                                url="https://t.me/PglZone",
                             )
                         ],
                     ]
