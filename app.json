@@ -17,14 +17,6 @@
          "plan": "heroku-postgresql"
       }
    ],
-   "buildpacks": [
-      {
-        "url": "https://github.com/heroku/heroku-buildpack-python"
-      },
-      {
-        "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-      }
-   ], 
    "env": {
       "TOKEN": {
          "description": "Your bot token. Get one from @BotFather ",
@@ -53,7 +45,7 @@
       },
       "OWNER_USERNAME": {
          "description": "Your username without the @",
-         "value": "Gauravv_03"
+         "value": "gauravv_03"
       },
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: PglRobot. If this ever points to PglRobot support than consider you made an enemy.",
