@@ -102,8 +102,7 @@ And the following:
 PglRobot_IMG = "https://telegra.ph/file/06129d917642f323f77a3.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @gauravv_03 \
- Supporting isnt always financial!
+ You can support the project by contacting [Gaurav](https://t.me/gauravv03).
  Those who cannot provide monetary support are welcome to help us develop the bot at @PglRobotSupport.
  [PayPal](paypal.me/gauravv03)"""
 
@@ -222,25 +221,33 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Add PglRobot",
+                                text="🎀 Add ✯ 𝙋𝙂𝙇 𝙍𝙊𝘽𝙊𝙏 ✯",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
+                            ),
+                             InlineKeyboardButton(
+                                text="🔥 Creater",
+                                url="https://t.me/Gauravv_03",
                             )
                         ],
                         [
                             InlineKeyboardButton(
-                                text="Support Group",
+                                text="🆘 Support Group",
                                 url=f"https://t.me/{SUPPORT_CHAT}",
                             ),
                             InlineKeyboardButton(
-                                text="Updates Channel",
+                                text="✅ Updates Channel",
                                 url="https://t.me/PglRobotUpdates",
                             ),
                         ],
                         [
+                             InlineKeyboardButton(
+                                text="🦋 PglZone ChatGroup",
+                                url="https://t.me/PglZone",
+                            ),
                             InlineKeyboardButton(
-                                text="Source code",
+                                text="👩‍💻 Source code",
                                 url="https://github.com/gaurav-25/PglRobot",
                             )
                         ],
