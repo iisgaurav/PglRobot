@@ -5,6 +5,8 @@ TRUTH = (
     "If you had to choose between going naked or having your thoughts appear in thought bubbles above your head for everyone to read, which would you choose?",
     "What’s the one thing you’re afraid to lose?",
     "Do you like someone as of the moment?",
+    "Do you gaurav",
+    "how much you love gaurav",
     "One thing about your best friend you are jealous of?",
     "Would you cheat on your boyfriend for a rich guy?",
     "What is your biggest turn on?",
@@ -17,7 +19,6 @@ TRUTH = (
     "After watching rent a girlfriend did u also got interest im gf booking online?",
     "Have you ever lied about your age to participate in a contest?",
     "Have you ever been caught checking someone out?",
-    "How much you love Gaurav",
 )
 
 DARE = (
