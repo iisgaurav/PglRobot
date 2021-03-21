@@ -75,7 +75,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 I am an Superpowerfull Full group management bot.
-I specialize in managing anime and similar themed groups.
+Maintained by @Gauravv_03 ❤
 You can find my list of available commands with /help.
 """
 
