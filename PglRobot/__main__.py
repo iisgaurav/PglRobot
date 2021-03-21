@@ -79,7 +79,7 @@ And the following:
 PglRobot_IMG = "https://telegra.ph/file/06129d917642f323f77a3.jpg"
 DONATE_STRING = """Heya, glad to hear you want to donate!
 Supporting him; [Gaurav](t.me/Gauravv_03)
-[PayPal](paypal.me/gauravv03)"""
+"""
 
 IMPORTED = {}
 MIGRATEABLE = []
