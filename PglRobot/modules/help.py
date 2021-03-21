@@ -1,5 +1,5 @@
 import logging
-from LayalRobot.Config import Messages as tr
+from PglRobot.Config import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
