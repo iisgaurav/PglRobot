@@ -144,12 +144,12 @@ CMD ["python3","-m","LaylaRobot"]
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-# Copy Python Requirements to /root/PglRobot
-RUN git clone -b shiken https://github.com/gaurav-25/PglRobot /root/PglRobot
-WORKDIR /root/PglRobot
+# Copy Python Requirements to /root/SaitamaRobot
+RUN git clone -b shiken https://github.com/AnimeKaizoku/SaitamaRobot /root/SaitamaRobot
+WORKDIR /root/SaitamaRobot
 
-#Copy config file to /root/PglRobot/PglRobot
-COPY ./PglRobot/sample_config.py ./PglRobot/config.py* /root/PglRobot/PglRobot/
+#Copy config file to /root/SaitamaRobot/SaitamaRobot
+COPY ./SaitamaRobot/sample_config.py ./SaitamaRobot/config.py* /root/SaitamaRobot/SaitamaRobot/
 
 ENV PATH="/home/bot/bin:$PATH"
 
