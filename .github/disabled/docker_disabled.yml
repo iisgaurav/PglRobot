@@ -24,7 +24,7 @@ jobs:
 
         with:
 
-          name: gaurav-25/PglRobot
+          name: AuraXNetwork/PglRobot
 
           username: ${{ secrets.DOCKER_USERNAME }}
 
