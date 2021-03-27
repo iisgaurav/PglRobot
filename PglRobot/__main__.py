@@ -260,7 +260,7 @@ def start(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_photo(
             PglRobotG_IMG,
-            G_START_TEXT.format(),
+            G_START_TEXT,
         )
 
 
