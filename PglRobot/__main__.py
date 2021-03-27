@@ -100,6 +100,10 @@ And the following:
 
 PglRobot_IMG = "https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg"
 
+G_START_TEXT = """"Hello I am Here!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+                uptime
+            ),"""
+PglRobotG_IMG = "https://telegra.ph/file/d48e2d7142b9c45b85c3c.jpg"
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting [AuraX Owner](https://t.me/AuraX_Owner).
  Those who cannot provide monetary support are welcome to help us develop the bot at @AuraXSupport.
@@ -255,10 +259,10 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            PglRobot_IMG,
-            "Hello I am Here!\n<b>Haven't slept since:</b> <code>{}</code>".format(
-                uptime
-            ),
+            PglRobotG_IMG,
+            G_START_TEXT.format(
+               escape_markdown(first_name), escape_markdown(context.bot.first_name)
+                ),
             parse_mode=ParseMode.HTML,
         )
 
