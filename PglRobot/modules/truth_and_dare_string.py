@@ -5,7 +5,7 @@ TRUTH = (
     "If you had to choose between going naked or having your thoughts appear in thought bubbles above your head for everyone to read, which would you choose?",
     "What’s the one thing you’re afraid to lose?",
     "Do you like someone as of the moment?",
-    "Do you gaurav",
+    "Do you love gaurav",
     "how much you love gaurav",
     "One thing about your best friend you are jealous of?",
     "Would you cheat on your boyfriend for a rich guy?",

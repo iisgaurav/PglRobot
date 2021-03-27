@@ -69,6 +69,7 @@ async def delete_messages(event):
     del_message = [message, event.message]
     await event.client.delete_messages(chat, del_message)
 
+
 @telethn.on(events.NewMessage(pattern="^[!/]tagall$"))
 async def tagging_powerful(event):
     mentions = "📢 Mentioned All"
@@ -77,8 +78,8 @@ async def tagging_powerful(event):
         mentions += f"[\u2063](tg://user?id={x.id})"
     await event.reply(mentions)
     await event.delete()
-    
-    
+
+
 __help__ = """
 *Admin only:*
  - /del: deletes the message you replied to

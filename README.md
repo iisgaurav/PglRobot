@@ -48,7 +48,7 @@ Should you be forking this repo then do not forget to star it - <img alt="GitHub
 ## How to setup/deploy.
 
 ### Read these notes carefully before proceeding 
- - Edit any mentions of @PglRobotSupport to your own support chat. 
+ - Edit any mentions of @AuraXSupport to your own support chat. 
  - Your code must be open source and a link to your fork's repository must be there in the start reply of the bot. [See this](https://github.com/AuraXNetwork/PglRobot)
  - Lastly, if you are found to run this repo without the code being open sourced or the repository link not mentioned in the bot, we will push a gban for you in our network because of being in violation of the license, you are free to be a dick and not respect the open source code (we do not mind) but we will not be having you around our chats.
 
@@ -91,7 +91,7 @@ from PglRobot.sample_config import Config
 
 class Development(Config):
     OWNER_ID = 1100735944 # your telegram ID
-    OWNER_USERNAME = "gauravv_03"  # your telegram username
+    OWNER_USERNAME = "AuraX_Owner"  # your telegram username
     API_KEY = "your bot api key"  # your api key, as provided by the @botfather
     SQLALCHEMY_DATABASE_URI = 'postgresql://username:password@localhost:5432/database'  # sample db credentials
     JOIN_LOGGER = '-1234567890' # some group chat that your bot is a member of
