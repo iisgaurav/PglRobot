@@ -260,9 +260,7 @@ def start(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_text(
             PglRobotG_IMG,
-            G_START_TEXT
-            parse_mode=ParseMode.HTML,
-        )
+            G_START_TEXT)
 
 
 # for test purposes
