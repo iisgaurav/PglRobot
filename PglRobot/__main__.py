@@ -74,8 +74,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am a  Powerfull  group management bot.
-You can find my list of available commands with /help.
+I am a  Powerfull  group management bot. You can find my list of available commands with /help.
 Maintained by [🖤「 𝗣𝗲𝗿𝗳𝗲𝗰𝘁™ 」🖤](t.me/AuraX_Owner)
 """
 
@@ -99,7 +98,7 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-PglRobot_IMG = "https://telegra.ph/file/06129d917642f323f77a3.jpg"
+PglRobot_IMG = "https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg"
 
 G_START_TEXT = """"Hello I am Here!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
@@ -225,33 +224,33 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="⚡️ 𝗔𝗗𝗗 𝗠𝗘 ⚡️",
+                                text="𝗔𝗗𝗗 𝗠𝗘⚡️",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
                             ),
                             InlineKeyboardButton(
-                                text="⚡️ 𝗣𝗴𝗹𝗭𝗼𝗻𝗲 𝗚𝗿𝗼𝘂𝗽 ⚡️",
+                                text="𝗣𝗴𝗹𝗭𝗼𝗻𝗲⚡️",
                                 url="https://t.me/PglZone",
                             ),    
                         ],
                         [
                             InlineKeyboardButton(
-                                text="⚡️ 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗚𝗿𝗼𝘂𝗽 ⚡️",
+                                text="𝗦𝘂𝗽𝗽𝗼𝗿𝘁⚡️",
                                 url=f"https://t.me/{SUPPORT_CHAT}",
                              ),
                             InlineKeyboardButton(
-                                text="⚡️ 𝗖𝗥𝗘𝗔𝗧𝗘𝗥 ⚡️",
+                                text="𝗖𝗥𝗘𝗔𝗧𝗘𝗥⚡️",
                                 url="https://t.me/AuraX_Owner",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="⚡️ 𝗨𝗽𝗱𝗮𝘁𝗲𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 ⚡️",
+                                text="𝗨𝗽𝗱𝗮𝘁𝗲𝘀⚡️",
                                 url="https://t.me/PglRobotUpdates",
                             ),
                             InlineKeyboardButton(
-                                text="⚡️ 𝗥𝗘𝗣𝗢 ⚡️",
+                                text="𝗥𝗘𝗣𝗢⚡️",
                                 url="https://github.com/AuraXNetwork/PglRobot",
                             ),
                         ],
