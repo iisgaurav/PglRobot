@@ -220,33 +220,33 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="⚡️ 𝗔𝗗𝗗 𝗠𝗘 ⚡️",
+                                text="𝗔𝗗𝗗 𝗠𝗘⚡️",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
                             ),
                             InlineKeyboardButton(
-                                text="⚡️ 𝗣𝗴𝗹𝗭𝗼𝗻𝗲 𝗚𝗿𝗼𝘂𝗽 ⚡️",
+                                text="𝗣𝗴𝗹𝗭𝗼𝗻𝗲⚡️",
                                 url="https://t.me/PglZone",
                             ),    
                         ],
                         [
                             InlineKeyboardButton(
-                                text="⚡️ 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗚𝗿𝗼𝘂𝗽 ⚡️",
+                                text="𝗦𝘂𝗽𝗽𝗼𝗿𝘁⚡️",
                                 url=f"https://t.me/{SUPPORT_CHAT}",
                              ),
                             InlineKeyboardButton(
-                                text="⚡️ 𝗖𝗥𝗘𝗔𝗧𝗘𝗥 ⚡️",
+                                text="𝗖𝗥𝗘𝗔𝗧𝗘𝗥⚡️",
                                 url="https://t.me/AuraX_Owner",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="⚡️ 𝗨𝗽𝗱𝗮𝘁𝗲𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 ⚡️",
+                                text="𝗨𝗽𝗱𝗮𝘁𝗲𝘀⚡️",
                                 url="https://t.me/PglRobotUpdates",
                             ),
                             InlineKeyboardButton(
-                                text="⚡️ 𝗥𝗘𝗣𝗢 ⚡️",
+                                text="𝗥𝗘𝗣𝗢⚡️",
                                 url="https://github.com/AuraXNetwork/PglRobot",
                             ),
                         ],
