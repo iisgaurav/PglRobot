@@ -5,6 +5,7 @@ import time
 import spamwatch
 
 import telegram.ext as tg
+from pyrogram import Client, errors
 from telethon import TelegramClient
 
 StartTime = time.time()
@@ -171,6 +172,7 @@ else:
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("PglRobot", API_ID, API_HASH)
+pgram = Client("PglRobot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
