@@ -74,8 +74,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am a  Powerfull  group management bot.
-You can find my list of available commands with /help.
+I am a  Powerfull  group management bot. You can find my list of available commands with /help.
 Maintained by [🖤「 𝗣𝗲𝗿𝗳𝗲𝗰𝘁™ 」🖤](t.me/AuraX_Owner)
 """
 
@@ -99,7 +98,7 @@ And the following:
     "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n",
 )
 
-PglRobot_IMG = "https://telegra.ph/file/06129d917642f323f77a3.jpg"
+PglRobot_IMG = "https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting [AuraX Owner](https://t.me/AuraX_Owner).
