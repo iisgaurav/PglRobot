@@ -74,14 +74,14 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 Hi {}, my name is {}! 
-I am an Super Powerfull Full group management bot.
+I am a  Powerfull  group management bot.
 You can find my list of available commands with /help.
-Maintained by [🖤「 𝗣𝗲𝗿𝗳𝗲𝗰𝘁™ 」🖤](t.me/PglZone_Owner) ❤
+Maintained by [🖤「 𝗣𝗲𝗿𝗳𝗲𝗰𝘁™ 」🖤](t.me/AuraX_Owner)
 """
 
 HELP_STRINGS = """
 Hey there! My name is *{}*.
-I'm a Heroine For Fun and help admins manage their groups! Have a look at the following for an idea of some of \
+I'm a Heroine For Fun and help admins to manage their groups! Have a look at the following for an idea of some of \
 the things I can help you with.
 *Main* commands available:
  • /help: PM's you this message.
@@ -102,8 +102,8 @@ And the following:
 PglRobot_IMG = "https://telegra.ph/file/06129d917642f323f77a3.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting [Gaurav](https://t.me/gauravv03).
- Those who cannot provide monetary support are welcome to help us develop the bot at @PglRobotSupport.
+ You can support the project by contacting [AuraX Owner](https://t.me/AuraX_Owner).
+ Those who cannot provide monetary support are welcome to help us develop the bot at @AuraXSupport.
  [PayPal](paypal.me/gauravv03)"""
 
 IMPORTED = {}
@@ -221,29 +221,33 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="🎀 Add ✯ 𝙋𝙂𝙇 𝙍𝙊𝘽𝙊𝙏 ✯",
+                                text="⚡️ 𝗔𝗗𝗗 𝗠𝗘 ⚡️",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
-                            )
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="🆘 Support Group",
-                                url=f"https://t.me/{SUPPORT_CHAT}",
                             ),
                             InlineKeyboardButton(
-                                text="🔥 Creater",
-                                url="https://t.me/Gauravv_03",
-                            ),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="🦋 PglZone ChatGroup",
+                                text="⚡️ 𝗣𝗴𝗹𝗭𝗼𝗻𝗲 𝗚𝗿𝗼𝘂𝗽 ⚡️",
                                 url="https://t.me/PglZone",
+                            ),    
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                text="⚡️ 𝗦𝘂𝗽𝗽𝗼𝗿𝘁 𝗚𝗿𝗼𝘂𝗽 ⚡️",
+                                url=f"https://t.me/{SUPPORT_CHAT}",
+                             ),
+                            InlineKeyboardButton(
+                                text="⚡️ 𝗖𝗥𝗘𝗔𝗧𝗘𝗥 ⚡️",
+                                url="https://t.me/AuraX_Owner",
+                            ),
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                text="⚡️ 𝗨𝗽𝗱𝗮𝘁𝗲𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 ⚡️",
+                                url="https://t.me/PglRobotUpdates",
                             ),
                             InlineKeyboardButton(
-                                text="👩‍💻 Source code",
+                                text="⚡️ 𝗥𝗘𝗣𝗢 ⚡️",
                                 url="https://github.com/AuraXNetwork/PglRobot",
                             ),
                         ],
@@ -252,6 +256,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
+            PglRobot_IMG,
             "Hello I am Here!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime
             ),
@@ -629,7 +634,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I am now online!")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "PglRobot now ready to work!")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
