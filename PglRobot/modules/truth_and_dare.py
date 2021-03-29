@@ -19,11 +19,6 @@ def dare(update: Update, context: CallbackContext):
     update.effective_message.reply_text(random.choice(truth_and_dare_string.DARE))
 
 
-__help__ = """
- • `/truth`*:* for random truth
- • `/dare`*:* for random dare
-"""
-
 TRUTH_HANDLER = DisableAbleCommandHandler("truth", truth)
 DARE_HANDLER = DisableAbleCommandHandler("dare", dare)
 
