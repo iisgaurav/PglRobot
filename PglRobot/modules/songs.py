@@ -42,7 +42,7 @@ JULIASONG = "@MissJuliaRobotMP3"
 JULIAVSONG = "@MissJuliaRobotMP4"
 
 
-@Cutiepii_Robot(pattern="^/lyrics ?(.*)")
+@PglRobot(pattern="^/lyrics ?(.*)")
 async def download_lyrics(v_url):
     if v_url.is_group:
         if (await is_register_admin(v_url.input_chat, v_url.message.sender_id)):
