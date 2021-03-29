@@ -60,7 +60,7 @@ async def download_lyrics(v_url):
         if song.lyrics:
             reply = song.format()
         else:
-            reply = "Couldn't find any lyrics for that song!"
+            reply = "Couldn't find any lyrics for that song!!"
     else:
         reply = "Song not found!"
     if len(reply) > 4090:
