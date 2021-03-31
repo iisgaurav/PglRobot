@@ -73,11 +73,11 @@ def ban(update: Update, context: CallbackContext) -> str:
             )
         elif user_id in DEMONS:
             message.reply_text(
-                "Bring an order from Heroes association to fight a Demon disaster."
+                "Bring an order from ©AuraXNetwork to fight a Demon disaster."
             )
         elif user_id in TIGERS:
             message.reply_text(
-                "Bring an order from Heroes association to fight a Tiger disaster."
+                "Bring an order from ©AuraXNetwork to fight a Tiger disaster."
             )
         elif user_id in WOLVES:
             message.reply_text("Wolf abilities make them ban immune!")
@@ -268,7 +268,7 @@ def punch(update: Update, context: CallbackContext) -> str:
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
         bot.sendMessage(
             chat.id,
-            f"One Punched! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
+            f"AuraX Just Kicked A Shit! {mention_html(member.user.id, html.escape(member.user.first_name))}.",
             parse_mode=ParseMode.HTML,
         )
         log = (

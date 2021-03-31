@@ -52,4 +52,8 @@ register
 bing_image_downloader
 progress
 ffmpeg
+google-api-python-client
+tswift
+instantmusic
+html2text
 youtubesearchpython
