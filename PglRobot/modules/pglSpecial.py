@@ -1,6 +1,6 @@
 
 __help__ = """
-*Gif and Images:*
+*Fun Gifs and Images:*
  • `/pat`*:* pats a user by a reply to the message.
  • `/neko`*:* sends random neko image
  • `/hug`*:* sends random hug gif
@@ -16,13 +16,7 @@ __help__ = """
  • `/wallpaper`*:* sends random best anime wallpapers.
  
 
- *Extra Fun With Cutiepii:*
- • `/q`*:* quote a replied message. Like QuotLyBot
- • `/zombies`*:* Search and remove Deleted Accounts from Group.  
- • `/img <keyword>`*:* to search Image any. 
- • `/tts <your text>`*:*  text to speech.
-
-*Stylish your text!*
+*Style your text with PglRobot!*
  • `/weebify <text>`*:* weebify your text!
  • `/bubble <text>`*:* bubble your text!
  • `/fbubble <text>`*:* bubble-filled your text!
@@ -39,4 +33,4 @@ __help__ = """
 """
 
 
-__mod_name__ = "Pgl"
+__mod_name__ = "PglSpl"
