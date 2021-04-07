@@ -142,7 +142,7 @@ async def download_video(v_url):
         os.remove(f"{ytdl_data['id']}.mp4")
       
 __help__ = """
- • `/music`** <songname artist(optional)>: uploads the song in it's best quality available. 
+ • `/song`** <songname artist(optional)>: uploads the song in it's best quality available. 
  
  • `/video`** <songname artist(optional)>: uploads the video song in it's best quality available.
  
@@ -150,4 +150,4 @@ __help__ = """
  
  • `/ytaudio`** <link> or `/ytvideo`** <link>: Downlods a video or audio from a youtube video to the bots local serve.. 
 """
-__mod_name__ = "Music"
+__mod_name__ = "Songs"

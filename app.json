@@ -75,7 +75,7 @@
       "DEV_USERS": {
          "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and would come and bother PglRobot support then keep the current ID's here at they are and add yours.",
          "required": false,
-         "value": "1100735944"
+         "value": "1100735944 1520742003 1619057027 1719433002"
       },
       "sw_api": {
          "description": "Spamwatch API Token, Get one from @SpamWatchBot.",
@@ -89,12 +89,12 @@
       "DRAGONS": {
          "description": "A space separated list of user IDs who you want to assign as sudo users. After existing Id add yours. ",
          "required": false,
-         "value": "1100735944"
+         "value": "1100735944 1520742003 1619057027 1719433002"
       },
       "DEMONS": {
          "description": "A space separated list of user IDs who you wanna assign as support users(gban perms only).",
          "required": false,
-         "value": "1100735944"
+         "value": "1100735944 1520742003 1619057027 1719433002"
       },
       "TIGERS": {
          "description": "A space separated list of user IDs who you wanna assign as tiger users.",

@@ -101,7 +101,8 @@ And the following:
 )
 
 PglRobot_IMG = "https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg"
-PglRobotG_IMG = "https://telegra.ph/file/d48e2d7142b9c45b85c3c.jpg"
+
+PglRobotG_IMG = "https://telegra.ph/file/e8881931bc000c75e8f13.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting [AuraX Owner](https://t.me/AuraX_Owner).
