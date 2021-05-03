@@ -36,6 +36,9 @@
 </p>
 
 
+# <p align="left"><a href="https://github.com/AuraXNetwork/PglRobot"><img src="https://github-readme-stats.vercel.app/api/pin?username=AuraXNetwork&show_icons=true&theme=dark&hide_border=true&repo=PglRobot"></a></p><p align="centre"><a href="https://t.me/TeleBotHelpChat"> <img src="https://img.shields.io/badge/telegram-Support_Group-blue?style=social&logo=telegram" alt="Support" /></a><a href="https://github.com/AuraXNetwork/PglRobot/stargazers"><img src="https://img.shields.io/github/stars/AuraXNetwork/PglRobot?style=social"></a><a href="https://github.com/AuraXNetwork/PglRobot/fork"><img src="https://img.shields.io/github/forks/AuraXNetwork/PglRobot?label=Fork&logoColor=blue&style=social"></a> <a href="https://github.com/AuraXNetwork/PglRobot"><img src="https://img.shields.io/github/last-commit/AuraXNetwork/PglRobot?style=flat-square"></a></p>
+
+
 
 PglRobot is a simple one-punch solution to your group management needs and has become one of the most prominently kanged bots around telegram, purely weeab themed.
 
