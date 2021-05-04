@@ -18,7 +18,7 @@
 <a href="https://github.com/IisGaurav/PglRobot" alt="GitHub closed issues"> <img src="https://img.shields.io/github/issues-closed-raw/IisGaurav/PglRobot?style=flat&logo=github&color=success" /> </a>
 <a href="https://github.com/IisGaurav/PglRobot" alt="GitHub commit activity"> <img src="https://img.shields.io/github/commit-activity/m/IisGaurav/PglRobot" /> </a>
 <a href="https://github.com/IisGaurav/PglRobot/graphs/contributors" alt="GitHub contributors"> <img src="https://img.shields.io/github/contributors/IisGaurav/PglRobot?style=flat&logo=github" /> </a>
-<a href="https://github.com/IisGaurav/PglRobot/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/IisGaurav/PglRobot?label=Forks&logo=github" /> </a>
+<a alt="GitHub forks"> <img src="https://img.shields.io/github/forks/IisGaurav/PglRobot?label=Forks&logo=github" /> </a>
 <a href="https://github.com/IisGaurav/PglRobot" alt="GitHub closed pull requests"> <img src="https://img.shields.io/github/issues-pr-closed-raw/IisGaurav/PglRobot?color=success" /> </a>
 <a href="https://github.com/IisGaurav/PglRobot" alt="GitHub issues"> <img src="https://img.shields.io/github/issues-raw/IisGaurav/PglRobot?style=flat&logo=github&color=yellow" /> </a>
 </p>
