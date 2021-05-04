@@ -18,7 +18,7 @@
 <a href="https://github.com/IisGaurav/PglRobot" alt="GitHub closed issues"> <img src="https://img.shields.io/github/issues-closed-raw/IisGaurav/PglRobot?style=flat&logo=github&color=success" /> </a>
 <a href="https://github.com/IisGaurav/PglRobot" alt="GitHub commit activity"> <img src="https://img.shields.io/github/commit-activity/m/IisGaurav/PglRobot" /> </a>
 <a href="https://github.com/IisGaurav/PglRobot/graphs/contributors" alt="GitHub contributors"> <img src="https://img.shields.io/github/contributors/IisGaurav/PglRobot?style=flat&logo=github" /> </a>
-<a alt="GitHub forks"> <img src="https://img.shields.io/github/forks/IisGaurav/PglRobot?label=Forks&logo=github" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/IisGaurav/PglRobot?label=Forks&logo=github" /> </a>
 <a href="https://github.com/IisGaurav/PglRobot" alt="GitHub closed pull requests"> <img src="https://img.shields.io/github/issues-pr-closed-raw/IisGaurav/PglRobot?color=success" /> </a>
 <a href="https://github.com/IisGaurav/PglRobot" alt="GitHub issues"> <img src="https://img.shields.io/github/issues-raw/IisGaurav/PglRobot?style=flat&logo=github&color=yellow" /> </a>
 </p>
@@ -36,7 +36,7 @@
 </p>
 
 
-# <p align="left"><a href="https://github.com/IisGaurav/PglRobot"><img src="https://github-readme-stats.vercel.app/api/pin?username=AuraXNetwork&show_icons=true&theme=dark&hide_border=true&repo=PglRobot"></a></p><p align="centre"><a href="https://t.me/TeleBotHelpChat"> <img src="https://img.shields.io/badge/telegram-Support_Group-blue?style=social&logo=telegram" alt="Support" /></a><a href="https://github.com/IisGaurav/PglRobot/stargazers"><img src="https://img.shields.io/github/stars/IisGaurav/PglRobot?style=social"></a><a href="https://github.com/IisGaurav/PglRobot/fork"><img src="https://img.shields.io/github/forks/IisGaurav/PglRobot?label=Fork&logoColor=blue&style=social"></a> <a href="https://github.com/IisGaurav/PglRobot"><img src="https://img.shields.io/github/last-commit/IisGaurav/PglRobot?style=flat-square"></a></p>
+# <p align="left"><a href="https://github.com/IisGaurav/PglRobot"><img src="https://github-readme-stats.vercel.app/api/pin?username=IisGaurav&show_icons=true&theme=dark&hide_border=true&repo=PglRobot"></a></p><p align="centre"><a href="https://t.me/AuraXSupport"> <img src="https://img.shields.io/badge/telegram-Support_Group-blue?style=social&logo=telegram" alt="Support" /></a><a href="https://github.com/IisGaurav/PglRobot/stargazers"><img src="https://img.shields.io/github/stars/IisGaurav/PglRobot?style=social"></a><a href="https://github.com/IisGaurav/PglRobot/fork"><img src="https://img.shields.io/github/forks/IisGaurav/PglRobot?label=Fork&logoColor=blue&style=social"></a> <a href="https://github.com/IisGaurav/PglRobot"><img src="https://img.shields.io/github/last-commit/IisGaurav/PglRobot?style=flat-square"></a></p>
 
 
 
