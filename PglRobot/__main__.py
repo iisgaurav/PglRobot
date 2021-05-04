@@ -251,7 +251,7 @@ def start(update: Update, context: CallbackContext):
                             ),
                             InlineKeyboardButton(
                                 text="𝗥𝗘𝗣𝗢⚡️",
-                                url="https://github.com/AuraXNetwork/PglRobot",
+                                url="https://github.com/IisGaurav/PglRobot",
                             ),
                         ],
                     ]

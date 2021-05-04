@@ -9,34 +9,34 @@
 </p>
 
 <p align="center">
-<a href="https://app.codacy.com/gh/AuraXNetwork/PglRobot?utm_source=github.com&utm_medium=referral&utm_content=AuraXNetwork/PglRobot&utm_campaign=Badge_Grade_Settings" alt="Codacy Badge">
+<a href="https://app.codacy.com/gh/IisGaurav/PglRobot?utm_source=github.com&utm_medium=referral&utm_content=IisGaurav/PglRobot&utm_campaign=Badge_Grade_Settings" alt="Codacy Badge">
 <img src="https://api.codacy.com/project/badge/Grade/6141417ceaf84545bab6bd671503df51" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot" alt="Libraries.io dependency status for GitHub repo"> <img src="https://img.shields.io/librariesio/github/AuraXNetwork/PglRobot" /> </a>
-<a href="http://hits.dwyl.com/AuraXNetwork/PglRobot" alt="HitCount"> <img src="http://hits.dwyl.com/AuraXNetwork/PglRobot.svg" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot" alt="Libraries.io dependency status for GitHub repo"> <img src="https://img.shields.io/librariesio/github/IisGaurav/PglRobot" /> </a>
+<a href="http://hits.dwyl.com/IisGaurav/PglRobot" alt="HitCount"> <img src="http://hits.dwyl.com/IisGaurav/PglRobot.svg" /> </a>
 </p>
 <p align="center">
-<a href="https://github.com/AuraXNetwork/PglRobot" alt="GitHub closed issues"> <img src="https://img.shields.io/github/issues-closed-raw/AuraXNetwork/PglRobot?style=flat&logo=github&color=success" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot" alt="GitHub commit activity"> <img src="https://img.shields.io/github/commit-activity/m/AuraXNetwork/PglRobot" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot/graphs/contributors" alt="GitHub contributors"> <img src="https://img.shields.io/github/contributors/AuraXNetwork/PglRobot?style=flat&logo=github" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/AuraXNetwork/PglRobot?label=Forks&logo=github" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot" alt="GitHub closed pull requests"> <img src="https://img.shields.io/github/issues-pr-closed-raw/AuraXNetwork/PglRobot?color=success" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot" alt="GitHub issues"> <img src="https://img.shields.io/github/issues-raw/AuraXNetwork/PglRobot?style=flat&logo=github&color=yellow" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot" alt="GitHub closed issues"> <img src="https://img.shields.io/github/issues-closed-raw/IisGaurav/PglRobot?style=flat&logo=github&color=success" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot" alt="GitHub commit activity"> <img src="https://img.shields.io/github/commit-activity/m/IisGaurav/PglRobot" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot/graphs/contributors" alt="GitHub contributors"> <img src="https://img.shields.io/github/contributors/IisGaurav/PglRobot?style=flat&logo=github" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot/network/members" alt="GitHub forks"> <img src="https://img.shields.io/github/forks/IisGaurav/PglRobot?label=Forks&logo=github" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot" alt="GitHub closed pull requests"> <img src="https://img.shields.io/github/issues-pr-closed-raw/IisGaurav/PglRobot?color=success" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot" alt="GitHub issues"> <img src="https://img.shields.io/github/issues-raw/IisGaurav/PglRobot?style=flat&logo=github&color=yellow" /> </a>
 </p>
 <p align="center">
-<a href="https://github.com/AuraXNetwork/PglRobot" alt="GitHub release (latest by date including pre-releases)"> <img src="https://img.shields.io/github/v/release/AuraXNetwork/PglRobot?include_prereleases?style=flat&logo=github" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot" alt="GitHub release (latest by date including pre-releases)"> <img src="https://img.shields.io/github/v/release/IisGaurav/PglRobot?include_prereleases?style=flat&logo=github" /> </a>
 <a href="https://www.python.org/" alt="made-with-python"> <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg?style=flat&logo=python&color=blue" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot" alt="Docker!"> <img src="https://aleen42.github.io/badges/src/docker.svg" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot" alt="GitHub repo size"> <img src="https://img.shields.io/github/repo-size/AuraXNetwork/PglRobot" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot/blob/master/LICENSE" alt="GPLv3 license"> <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot" alt="Docker!"> <img src="https://aleen42.github.io/badges/src/docker.svg" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot" alt="GitHub repo size"> <img src="https://img.shields.io/github/repo-size/IisGaurav/PglRobot" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot/blob/master/LICENSE" alt="GPLv3 license"> <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" /> </a>
 </p>
 <p align="center">
 <a href="https://t.me/PglRobotUpdates" alt="Telegram!"> <img src="https://aleen42.github.io/badges/src/telegram.svg" /> </a>
-<a href="https://github.com/AuraXNetwork/PglRobot/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /> </a>
+<a href="https://github.com/IisGaurav/PglRobot/graphs/commit-activity" alt="Maintenance"> <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /> </a>
 <a href="https://makeapullrequest.com" alt="PRs Welcome"> <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" /> </a>
 </p>
 
 
-# <p align="left"><a href="https://github.com/AuraXNetwork/PglRobot"><img src="https://github-readme-stats.vercel.app/api/pin?username=AuraXNetwork&show_icons=true&theme=dark&hide_border=true&repo=PglRobot"></a></p><p align="centre"><a href="https://t.me/TeleBotHelpChat"> <img src="https://img.shields.io/badge/telegram-Support_Group-blue?style=social&logo=telegram" alt="Support" /></a><a href="https://github.com/AuraXNetwork/PglRobot/stargazers"><img src="https://img.shields.io/github/stars/AuraXNetwork/PglRobot?style=social"></a><a href="https://github.com/AuraXNetwork/PglRobot/fork"><img src="https://img.shields.io/github/forks/AuraXNetwork/PglRobot?label=Fork&logoColor=blue&style=social"></a> <a href="https://github.com/AuraXNetwork/PglRobot"><img src="https://img.shields.io/github/last-commit/AuraXNetwork/PglRobot?style=flat-square"></a></p>
+# <p align="left"><a href="https://github.com/IisGaurav/PglRobot"><img src="https://github-readme-stats.vercel.app/api/pin?username=AuraXNetwork&show_icons=true&theme=dark&hide_border=true&repo=PglRobot"></a></p><p align="centre"><a href="https://t.me/TeleBotHelpChat"> <img src="https://img.shields.io/badge/telegram-Support_Group-blue?style=social&logo=telegram" alt="Support" /></a><a href="https://github.com/IisGaurav/PglRobot/stargazers"><img src="https://img.shields.io/github/stars/IisGaurav/PglRobot?style=social"></a><a href="https://github.com/IisGaurav/PglRobot/fork"><img src="https://img.shields.io/github/forks/IisGaurav/PglRobot?label=Fork&logoColor=blue&style=social"></a> <a href="https://github.com/IisGaurav/PglRobot"><img src="https://img.shields.io/github/last-commit/IisGaurav/PglRobot?style=flat-square"></a></p>
 
 
 
@@ -45,14 +45,14 @@ PglRobot is a simple one-punch solution to your group management needs and has b
 * Bot Link:  <a href="https://t.me/PglRobot" alt="PglRobot"> <img src="https://img.shields.io/badge/%F0%9F%A4%96%20-PglRobot-blue" /> </a>
 * News channel: <a  href="https://t.me/PglRobotUpdates" alt="PglRobot Updates"> <img  src="https://img.shields.io/badge/%F0%9F%92%A1-PglRobot%20Updates-9cf" /> </a>
 
-Should you be forking this repo then do not forget to star it - <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/AuraXNetwork/PglRobot?color=white&label=%F0%9F%8C%9F%20star">
+Should you be forking this repo then do not forget to star it - <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/IisGaurav/PglRobot?color=white&label=%F0%9F%8C%9F%20star">
 
 
 ## How to setup/deploy.
 
 ### Read these notes carefully before proceeding 
  - Edit any mentions of @AuraXSupport to your own support chat. 
- - Your code must be open source and a link to your fork's repository must be there in the start reply of the bot. [See this](https://github.com/AuraXNetwork/PglRobot)
+ - Your code must be open source and a link to your fork's repository must be there in the start reply of the bot. [See this](https://github.com/IisGaurav/PglRobot)
  - Lastly, if you are found to run this repo without the code being open sourced or the repository link not mentioned in the bot, we will push a gban for you in our network because of being in violation of the license, you are free to be a dick and not respect the open source code (we do not mind) but we will not be having you around our chats.
 
 
@@ -66,7 +66,7 @@ REMEMBER: Turn on worker dyno (Don't worry It's free :D) & Webhook
 Now send the bot /start, If it doesn't respond go to https://dashboard.heroku.com/apps/(app-name)/settings and remove webhook and port.
 ```
 
-  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AuraXNetwork/PglRobot.git)
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/IisGaurav/PglRobot.git)
 
 </details>  
 <details>
@@ -232,7 +232,7 @@ For queries or any issues regarding the bot please open an issue ticket or visit
 ## How to setup on Heroku 
 For starters click on this button 
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AuraXNetwork/PglRobot.git) 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/IisGaurav/PglRobot.git) 
 
 
 ## CREDITS 📍

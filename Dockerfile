@@ -65,7 +65,7 @@ RUN apt update && apt upgrade -y && \
 RUN pip3 install --upgrade pip setuptools
 
 # Copy Python Requirements to /root/PglRobot
-RUN git clone -b shiken https://github.com/AuraXNetwork/PglRobot /root/PglRobot
+RUN git clone -b shiken https://github.com/IisGaurav/PglRobot /root/PglRobot
 WORKDIR /root/PglRobot
 
 #Copy config file to /root/PglRobot/PglRobot
