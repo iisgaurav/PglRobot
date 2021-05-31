@@ -3,7 +3,7 @@ from PglRobot import telethn
 
 
 def register(**args):
-    """ Registers a new message. """
+    """Registers a new message."""
     pattern = args.get("pattern", None)
 
     r_pattern = r"^[/!]"
@@ -21,7 +21,7 @@ def register(**args):
 
 
 def chataction(**args):
-    """ Registers chat actions. """
+    """Registers chat actions."""
 
     def decorator(func):
         telethn.add_event_handler(func, events.ChatAction(**args))
@@ -31,7 +31,7 @@ def chataction(**args):
 
 
 def userupdate(**args):
-    """ Registers user updates. """
+    """Registers user updates."""
 
     def decorator(func):
         telethn.add_event_handler(func, events.UserUpdate(**args))
@@ -41,7 +41,7 @@ def userupdate(**args):
 
 
 def inlinequery(**args):
-    """ Registers inline query. """
+    """Registers inline query."""
     pattern = args.get("pattern", None)
 
     if pattern is not None and not pattern.startswith("(?i)"):
@@ -55,7 +55,7 @@ def inlinequery(**args):
 
 
 def callbackquery(**args):
-    """ Registers inline query. """
+    """Registers inline query."""
 
     def decorator(func):
         telethn.add_event_handler(func, events.CallbackQuery(**args))
