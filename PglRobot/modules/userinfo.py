@@ -306,9 +306,7 @@ def info(update: Update, context: CallbackContext):
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/AuraXNetwork">?</a>]'.format(
-            bot.username
-        )
+        text += ' [<a href="https://t.me/AuraXNetwork">?</a>]'.format(bot.username)
 
     try:
         user_member = chat.get_member(user.id)
@@ -478,9 +476,7 @@ def set_about_bio(update: Update, context: CallbackContext):
             return
 
         if user_id == bot.id and sender_id not in DEV_USERS:
-            message.reply_text(
-                "Erm... yeah, I only trust ©AuraXNetwork to set my bio."
-            )
+            message.reply_text("Erm... yeah, I only trust ©AuraXNetwork to set my bio.")
             return
 
         text = message.text

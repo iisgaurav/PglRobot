@@ -61,12 +61,12 @@ DEFAULT_WELCOME_MESSAGES = [
     "Something just fell from the sky! - oh, its {first}.",
     "{first}Just teleported into the chat!",
     "Hi, {first}, show me your Hunter License!",  # Hunter Hunter
-    "I'm looking for Garo, oh wait nvm it's {first}.",  
+    "I'm looking for Garo, oh wait nvm it's {first}.",
     "Welcome {first}, leaving is not an option!",
     "Run Forest! ..I mean...{first}.",
-    "{first}do 100 push-ups, 100 sit-ups, 100 squats, and 10km running EVERY SINGLE DAY!!!",  
-    "Huh?\nDid someone with a disaster level just join?\nOh wait, it's just {first}.", 
-    "Hey, {first}, ever heard the King Engine?",  
+    "{first}do 100 push-ups, 100 sit-ups, 100 squats, and 10km running EVERY SINGLE DAY!!!",
+    "Huh?\nDid someone with a disaster level just join?\nOh wait, it's just {first}.",
+    "Hey, {first}, ever heard the King Engine?",
     "Hey, {first}, empty your pockets.",
     "Hey, {first}!, are you strong?",
     "Call the Avengers! - {first}just joined the chat.",
@@ -109,7 +109,7 @@ DEFAULT_WELCOME_MESSAGES = [
     "Ladies and gentlemen, I give you ...  {first}.",
     "Behold my new evil scheme, the {first}-Inator.",
     "Ah, {first}the Platypus, you're just in time... to be trapped.",
-    "{first}just arrived. Diable Jamble!",  # 
+    "{first}just arrived. Diable Jamble!",  #
     "{first}just arrived. Aschente!",  # No Game No Life
     "{first}say Aschente to swear by the pledges.",  # No Game No Life
     "{first}just joined. El Psy congroo!",  # Steins Gate

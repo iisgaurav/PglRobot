@@ -1,4 +1,3 @@
-
 __help__ = """
 *Fun Gifs and Images:*
  • `/pat`*:* pats a user by a reply to the message.

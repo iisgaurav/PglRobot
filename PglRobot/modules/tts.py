@@ -17,13 +17,14 @@ from PglRobot.__main__ import STATS
 from PglRobot.modules.disable import DisableAbleCommandHandler
 from PglRobot.modules.helper_funcs.extraction import extract_user
 
+
 def tts(update, context):
     args = context.args
     current_time = datetime.strftime(datetime.now(), "%d.%m.%Y %H:%M:%S")
     filename = datetime.now().strftime("%d%m%y-%H%M%S%f")
     reply = " ".join(args)
     update.message.chat.send_action(ChatAction.RECORD_AUDIO)
-    lang="ml"
+    lang = "ml"
     tts = gTTS(reply, lang)
     tts.save("k.mp3")
     with open("k.mp3", "rb") as f:
@@ -36,12 +37,11 @@ def tts(update, context):
         tts.save("k.mp3")
     with open("k.mp3", "rb") as speech:
         update.message.reply_voice(speech, quote=False)
-       
+
+
 TTS_HANDLER = DisableAbleCommandHandler("tts", tts)
 
 dispatcher.add_handler(TTS_HANDLER)
 
 
-__handlers__ = [
-    TTS_HANDLER
-]
+__handlers__ = [TTS_HANDLER]

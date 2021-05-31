@@ -463,7 +463,7 @@ def lined(update, context):
         message.reply_to_message.reply_text(string)
     else:
         message.reply_text(string)
-        
+
 
 WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify)
 BUBBLE_HANDLER = DisableAbleCommandHandler("bubble", bubble)
@@ -499,4 +499,3 @@ __handlers__ = [FSQUARE_HANDLER]
 __handlers__ = [BLUE_HANDLER]
 __handlers__ = [LATIN_HANDLER]
 __handlers__ = [LINED_HANDLER]
-
