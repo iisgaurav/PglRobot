@@ -75,7 +75,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 I am a  Powerfull  group management bot. You can find my list of available commands with /help.
-Maintained by [🖤「 𝗣𝗲𝗿𝗳𝗲𝗰𝘁™ 」🖤](t.me/AuraX_Owner)
+Maintained by [🖤「 𝗣𝗲𝗿𝗳𝗲𝗰𝘁™ 」🖤](t.me/iisgaurav)
 """
 G_START_TEXT = """"𝙃𝙚𝙡𝙡𝙤 𝙋𝙜𝙡𝙍𝙤𝙗𝙤𝙩 𝙄𝙨 𝙄𝙣 𝙏𝙝𝙚 𝙂𝙧𝙤𝙪𝙥. 𝙁𝙤𝙧 𝙃𝙚𝙡𝙥 𝙈𝙚𝙣𝙪 𝙋𝙢 𝙈𝙚. 𝙃𝙖𝙫𝙚𝙣'𝙩 𝙎𝙡𝙚𝙥𝙩 𝙎𝙞𝙣𝙘𝙚- {}!
 """
@@ -105,7 +105,7 @@ PglRobot_IMG = "https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg"
 PglRobotG_IMG = "https://telegra.ph/file/e8881931bc000c75e8f13.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting [AuraX Owner](https://t.me/AuraX_Owner).
+ You can support the project by contacting [AuraX Owner](https://t.me/iisgaurav).
  Those who cannot provide monetary support are welcome to help us develop the bot at @AuraXSupport.
  [PayPal](paypal.me/gauravv03)"""
 
@@ -241,7 +241,7 @@ def start(update: Update, context: CallbackContext):
                             ),
                             InlineKeyboardButton(
                                 text="𝗖𝗥𝗘𝗔𝗧𝗘𝗥⚡️",
-                                url="https://t.me/AuraX_Owner",
+                                url="https://t.me/iisgaurav",
                             ),
                         ],
                         [
@@ -251,7 +251,7 @@ def start(update: Update, context: CallbackContext):
                             ),
                             InlineKeyboardButton(
                                 text="𝗥𝗘𝗣𝗢⚡️",
-                                url="https://github.com/IisGaurav/PglRobot",
+                                url="https://github.com/iisgaurav/PglRobot",
                             ),
                         ],
                     ]
