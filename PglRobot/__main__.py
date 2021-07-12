@@ -107,7 +107,7 @@ PglRobot_IMG = "https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg"
 PglRobotG_IMG = "https://telegra.ph/file/e8881931bc000c75e8f13.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting [AuraX Owner](https://t.me/iisgaurav).
+ You can support the project by contacting [Gaurav Verma](https://t.me/iisgaurav).
  Those who cannot provide monetary support are welcome to help us develop the bot at @AuraXSupport.
  [PayPal](paypal.me/gauravv03)"""
 
@@ -226,33 +226,25 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="𝗔𝗗𝗗 𝗠𝗘⚡️",
+                                text="ADD ME IN YOUR GROUP ⚡️",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
                             ),
-                            InlineKeyboardButton(
-                                text="𝗣𝗴𝗹𝗭𝗼𝗻𝗲⚡️",
-                                url="https://t.me/PglZone",
-                            ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="𝗦𝘂𝗽𝗽𝗼𝗿𝘁⚡️",
+                                text="SUPPORT ⚡️",
                                 url=f"https://t.me/{SUPPORT_CHAT}",
                             ),
                             InlineKeyboardButton(
-                                text="𝗖𝗥𝗘𝗔𝗧𝗘𝗥⚡️",
-                                url="https://t.me/iisgaurav",
+                                text="UPDATES ⚡️",
+                                url="https://t.me/VCUpdates",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="𝗨𝗽𝗱𝗮𝘁𝗲𝘀⚡️",
-                                url="https://t.me/PglRobotUpdates",
-                            ),
-                            InlineKeyboardButton(
-                                text="𝗥𝗘𝗣𝗢⚡️",
+                                text="SOURCE CODE ⚡️",
                                 url="https://github.com/iisgaurav/PglRobot",
                             ),
                         ],
