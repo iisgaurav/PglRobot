@@ -75,7 +75,6 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 I am a  Powerfull  group management bot. You can find my list of available commands with /help.
-Maintained by [Gaurav™ [🇮🇳]](https://t.me/iisgaurav)
 """
 G_START_TEXT = """
 Hello PglRobot Is In The Chat.
@@ -108,8 +107,9 @@ PglRobotG_IMG = "https://telegra.ph/file/e8881931bc000c75e8f13.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting [Gaurav Verma](https://t.me/iisgaurav).
- Those who cannot provide monetary support are welcome to help us develop the bot at @AuraXSupport.
- [PayPal](paypal.me/gauravv03)"""
+ Using [PayPal](paypal.me/iisgaurav).
+ Those who cannot provide monetary support are welcome to help us develop the bot at @VegaCodes.
+ """
 
 IMPORTED = {}
 MIGRATEABLE = []
