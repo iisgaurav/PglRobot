@@ -3,7 +3,7 @@
 </p>
 
 
-PglRobot is a simple one-punch solution to your group management needs and has become one of the most prominently kanged bots around telegram, purely weeab themed.
+## PglRobot is an extraordinary telegram group manager bot developed with the help of bots available in Telegram.
 
 * Bot Link:  <a href="https://t.me/PglRobot" alt="PglRobot"> <img src="https://img.shields.io/badge/%F0%9F%A4%96%20-PglRobot-blue" /> </a>
 * News channel: <a  href="https://t.me/PglRobotUpdates" alt="PglRobot Updates"> <img  src="https://img.shields.io/badge/%F0%9F%92%A1-PglRobot%20Updates-9cf" /> </a>
