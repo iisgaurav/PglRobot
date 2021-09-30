@@ -48,12 +48,7 @@ PglRobot is a simple one-punch solution to your group management needs and has b
 Should you be forking this repo then do not forget to star it - <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/IisGaurav/PglRobot?color=white&label=%F0%9F%8C%9F%20star">
 
 
-## How to setup/deploy.
-
-### Read these notes carefully before proceeding 
- - Edit any mentions of @AuraXSupport to your own support chat. 
- - Your code must be open source and a link to your fork's repository must be there in the start reply of the bot. [See this](https://github.com/iisgaurav/PglRobot)
- - Lastly, if you are found to run this repo without the code being open sourced or the repository link not mentioned in the bot, we will push a gban for you in our network because of being in violation of the license, you are free to be a dick and not respect the open source code (we do not mind) but we will not be having you around our chats.
+# How to setup/deploy
 
   
 <details>
