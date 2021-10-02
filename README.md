@@ -15,7 +15,7 @@ Should you be forking this repo then do not forget to star it - <img alt="GitHub
 
   
 <details>
-  <summary>Steps to Host!! </summary>
+  <summary><h2>Steps to Host!! </h2></summary>
 
   ## Setting up the bot (Read this before trying to use!):
 Please make sure to use python3.6, as I cannot guarantee everything will work as expected on older Python versions!
