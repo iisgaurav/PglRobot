@@ -174,12 +174,14 @@ Once you've set up your database and your configuration is complete, simply run 
 Note: the restart bat requires that User account control be disabled.
 
 For queries or any issues regarding the bot please open an issue ticket or visit us at [PglRobot Support](https://t.me/PglRbotSupport)
-## How to setup on Heroku 
+  
+</details>  
+
+## Deploy on Heroku 
 For starters click on this button 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/iisgaurav/PglRobot.git) 
   
-</details>  
 
 
 ## CREDITS 📍
