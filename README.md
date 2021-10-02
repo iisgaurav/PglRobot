@@ -1,6 +1,6 @@
-<p align="center">
+<h1 align="center">
   <img src="https://telegra.ph/file/06129d917642f323f77a3.jpg">
-</p>
+</h1>
 
 
 <h2 align="center">PglRobot is an extraordinary telegram group manager bot developed with the help of bots available in Telegram.<h2>
