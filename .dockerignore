@@ -1,0 +1,14 @@
+.venv
+venv
+__pycache__
+*.pyc
+*.session
+*.session-journal
+.env
+log.txt
+.git
+.gitignore
+.vscode
+.idea
+Dockerfile
+.dockerignore

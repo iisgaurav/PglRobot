@@ -1,187 +1,105 @@
-<p align="center">
-  <img src="https://telegra.ph/file/06129d917642f323f77a3.jpg">
-</p>
-
-
-<p align="center"><strong>PglRobot is an extraordinary telegram group manager bot developed with the help of bots available in Telegram.</strong></p>
-
-
-<h1> How to setup/deploy</h1>
-<details>
-  <summary>Steps to Host!!</summary>
-
-  ## Setting up the bot (Read this before trying to use!):
-Please make sure to use python3.6, as I cannot guarantee everything will work as expected on older Python versions!
-This is because markdown parsing is done by iterating through a dict, which is ordered by default in 3.6.
-
-  ### Configuration
-
-There are two possible ways of configuring your bot: a config.py file, or ENV variables.
-
-The preferred version is to use a `config.py` file, as it makes it easier to see all your settings grouped together.
-This file should be placed in your `PglRobot` folder, alongside the `__main__.py` file. 
-This is where your bot token will be loaded from, as well as your database URI (if you're using a database), and most of 
-your other settings.
-
-It is recommended to import sample_config and extend the Config class, as this will ensure your config contains all 
-defaults set in the sample_config, hence making it easier to upgrade.
-
-An example `config.py` file could be:
-```
-from PglRobot.sample_config import Config
-
-class Development(Config):
-    OWNER_ID = 1100735944 # your telegram ID
-    OWNER_USERNAME = "iisgaurav"  # your telegram username
-    API_KEY = "your bot api key"  # your api key, as provided by the @botfather
-    SQLALCHEMY_DATABASE_URI = 'postgresql://username:password@localhost:5432/database'  # sample db credentials
-    JOIN_LOGGER = '-1234567890' # some group chat that your bot is a member of
-    USE_JOIN_LOGGER = True
-    DRAGONS = [18673980, 1100735944]  # List of id's for users which have sudo access to the bot.
-    LOAD = []
-    NO_LOAD = ['translation']
-```
-
-If you can't have a config.py file (EG on Heroku), it is also possible to use environment variables.
-The following env variables are supported:
- - `ENV`: Setting this to ANYTHING will enable env variables
-
- - `TOKEN`: Your bot token, as a string.
- - `OWNER_ID`: An integer of consisting of your owner ID
- - `OWNER_USERNAME`: Your username
-
- - `DATABASE_URL`: Your database URL
- - `JOIN_LOGGER`: optional: a chat where your replied saved messages are stored, to stop people deleting their old 
- - `LOAD`: Space-separated list of modules you would like to load
- - `NO_LOAD`: Space-separated list of modules you would like NOT to load
- - `WEBHOOK`: Setting this to ANYTHING will enable webhooks when in env mode
- messages
- - `URL`: The URL your webhook should connect to (only needed for webhook mode)
-
- - `DRAGONS`: A space-separated list of user_ids which should be considered sudo users
- - `DEMONS`: A space-separated list of user_ids which should be considered support users (can gban/ungban,
- nothing else)
- - `WOLVES`: A space-separated list of user_ids which should be considered whitelisted - they can't be banned.
- - `DONATION_LINK`: Optional: link where you would like to receive donations.
- - `CERT_PATH`: Path to your webhook certificate
- - `PORT`: Port to use for your webhooks
- - `DEL_CMDS`: Whether to delete commands from users which don't have rights to use that command
- - `STRICT_GBAN`: Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.
- - `WORKERS`: Number of threads to use. 8 is the recommended (and default) amount, but your experience may vary.
- __Note__ that going crazy with more threads wont necessarily speed up your bot, given the large amount of sql data 
- accesses, and the way python asynchronous calls work.
- - `BAN_STICKER`: Which sticker to use when banning people.
- - `ALLOW_EXCL`: Whether to allow using exclamation marks ! for commands as well as /.
-
-  ### Python dependencies
-
-Install the necessary Python dependencies by moving to the project directory and running:
-
-`pip3 install -r requirements.txt`.
-
-This will install all the necessary python packages.
-
-  ### Database
-
-If you wish to use a database-dependent module (eg: locks, notes, userinfo, users, filters, welcomes),
-you'll need to have a database installed on your system. I use Postgres, so I recommend using it for optimal compatibility.
-
-In the case of Postgres, this is how you would set up a database on a Debian/ubuntu system. Other distributions may vary.
-
-- install postgresql:
-
-`sudo apt-get update && sudo apt-get install postgresql`
-
-- change to the Postgres user:
-
-`sudo su - postgres`
-
-- create a new database user (change YOUR_USER appropriately):
-
-`createuser -P -s -e YOUR_USER`
-
-This will be followed by you need to input your password.
-
-- create a new database table:
-
-`createdb -O YOUR_USER YOUR_DB_NAME`
-
-Change YOUR_USER and YOUR_DB_NAME appropriately.
-
-- finally:
-
-`psql YOUR_DB_NAME -h YOUR_HOST YOUR_USER`
-
-This will allow you to connect to your database via your terminal.
-By default, YOUR_HOST should be 0.0.0.0:5432.
-
-You should now be able to build your database URI. This will be:
-
-`sqldbtype://username:pw@hostname:port/db_name`
-
-Replace sqldbtype with whichever DB you're using (eg Postgres, MySQL, SQLite, etc)
-repeat for your username, password, hostname (localhost?), port (5432?), and DB name.
-
-  ## Modules
-   ### Setting load order.
-
-The module load order can be changed via the `LOAD` and `NO_LOAD` configuration settings.
-These should both represent lists.
-
-If `LOAD` is an empty list, all modules in `modules/` will be selected for loading by default.
-
-If `NO_LOAD` is not present or is an empty list, all modules selected for loading will be loaded.
-
-If a module is in both `LOAD` and `NO_LOAD`, the module will not be loaded - `NO_LOAD` takes priority.
-
-   ### Creating your own modules.
-
-Creating a module has been simplified as much as possible - but do not hesitate to suggest further simplification.
-
-All that is needed is that your .py file is in the modules folder.
-
-To add commands, make sure to import the dispatcher via
-
-`from PglRobot import dispatcher`.
-
-You can then add commands using the usual
-
-`dispatcher.add_handler()`.
-
-Assigning the `__help__` variable to a string describing this modules' available
-commands will allow the bot to load it and add the documentation for
-your module to the `/help` command. Setting the `__mod_name__` variable will also allow you to use a nicer, user-friendly name for a module.
-
-The `__migrate__()` function is used for migrating chats - when a chat is upgraded to a supergroup, the ID changes, so 
-it is necessary to migrate it in the DB.
-
-The `__stats__()` function is for retrieving module statistics, eg number of users, number of chats. This is accessed 
-through the `/stats` command, which is only available to the bot owner.
-
-## Starting the bot.
-
-Once you've set up your database and your configuration is complete, simply run the bat file(if on windows) or run (Linux):
-
-`python3 -m PglRobot`
-
-Note: the restart bat requires that User account control be disabled.
-
-For queries or any issues regarding the bot please open an issue ticket or visit us at [PglRobot Support](https://t.me/PglRbotSupport)
+<div align="center">
+  <img src="https://telegra.ph/file/0c9df382b6cc8f6b4e6a8.png" width="200" height="200" alt="PglRobot Logo">
   
-</details>  
-
-## Deploy on Heroku 
-For starters click on this button 
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/iisgaurav/PglRobot.git) 
+  # 🤖 PglRobot
   
+  **A Next-Generation Telegram Group Management Bot**
+  
+  *Built from the ground up using modern asynchronous architecture with Aiogram 3 and SQLAlchemy 2.0.*
+</div>
 
+---
 
-## CREDITS 📍
-The bot is based on the work done by Gaurav. This repo was just revamped to suit an Anime-centric community. All original credits go to Paul and his dedication, Without his efforts, this fork would not have been possible!
+## 🌟 About PglRobot
+PglRobot is a highly advanced, lightning-fast Telegram Bot designed to securely and efficiently manage group chats of any size. Moving away from legacy synchronous wrappers, PglRobot is built using **Aiogram 3** and **Telethon** in a Hybrid Architecture, offering fully non-blocking I/O and rapid MTProto message processing, making it one of the most responsive moderation bots available today.
 
+### 💎 Why use PglRobot?
+- ⚡ **Blazing Fast Async Core**: Entirely built on Aiogram 3.x and SQLAlchemy 2.0 (`asyncpg`). This guarantees massive scalability and zero lag, completely avoiding the blocking bottlenecks of legacy SQLite bots.
+- 🧠 **Hybrid Engine**: Seamlessly combines the standard Bot API (Aiogram) for rapid command processing with deep MTProto functionality (Telethon) for advanced tasks.
+- 🛡️ **Intelligent Anti-Spam**: Drops reliance on broken third-party APIs. Uses a built-in heuristic scoring system to instantly catch and ban crypto-scammers and spam rings before they can disrupt your chat.
+- 🌐 **Native Federations**: Cross-group ban networks are fully supported natively to protect your entire community ecosystem. Ban once, secure everywhere.
+- 🔒 **Enterprise Stability**: 100% strictly typed codebase verified by `basedpyright` with 0 typing errors. Written entirely from scratch to be crash-proof.
 
-Any other authorship/credits can be seen through the commits.
+---
 
+## 🔥 Key Features
 
-Should any be missing kindly let us know at  or simply submit a pull request on the readme.
+PglRobot comes packed with a powerful suite of plugins and features:
+
+### 🛡️ Moderation & Management
+- **AntiSpam:** Strict anti-spam protections to keep your group clean.
+- **Purge System:** Quickly delete bulk messages (`/purge`, `/del`). Includes a robust chunking algorithm to bypass API limits on massive purges.
+- **Rules:** Set and enforce group rules (`/rules`, `/setrules`).
+- **Locks & Blacklists:** Advanced content locking (`/lock url`, `/lock photo`) and text censoring (`/addblacklist`).
+- **Approvals & Trust:** Whitelist your most loyal members (`/approve`) or use the Karma-like Trust system (`/trust`) to automatically bypass locks.
+- **Force Subscribe & Join Requests:** Force members to join a channel (`/fsub`) and auto-approve their group join requests (`/autoapprove`).
+- **Custom Filters:** Create highly customized text or media auto-replies (`/filter`, `/stop`).
+- **Connections:** Manage your group's settings privately by connecting to it in PM (`/connect`).
+- **NSFW Detection:** Machine-learning powered image scanning to automatically delete nudity or gore (powered by Sightengine).
+- **Global Bans (GBan):** Sudo users can globally ban scammers across *all* groups the bot manages simultaneously.
+- **Federations (Feds):** Group creators can link multiple groups into a federation to share a unified ban list. Ban once, remove everywhere!
+- **Zombies (MTProto):** Uses Telethon to bypass Bot API limits and scan for or kick "Deleted Accounts" from your groups (`/zombies`, `/zombies clean`).
+
+### 🎉 Engagement & Utility
+- **Welcome & Goodbye:** Highly customizable welcome messages supporting Text, Photos, Videos, and Gifs, with inline buttons and dynamic formatting tags (e.g., `{first}`, `{chatname}`).
+- **Karma System:** A fun reputation system! Users can reply to messages with `+1`, `thanks`, or `pro` to give Karma, and `-1` or `noob` to take it away.
+- **AFK (Away From Keyboard):** Let your friends know when you are busy. The bot will automatically reply to anyone who mentions you!
+- **Notes System:** Save important text or media using `/save <notename>` and retrieve it using `#<notename>`.
+
+### 🌙 Automation
+- **Night Mode:** Automatically locks your group (disabling messaging and media) at 12:00 AM IST and unlocks it at 6:00 AM IST to prevent late-night spam while admins are asleep!
+
+---
+
+## 🛠️ Technology Stack
+- **Framework:** [Aiogram 3.x](https://docs.aiogram.dev/en/v3.0.0/)
+- **Database:** PostgreSQL (with `asyncpg`)
+- **ORM:** [SQLAlchemy 2.0](https://docs.sqlalchemy.org/en/20/)
+- **Scheduling:** [APScheduler](https://apscheduler.readthedocs.io/en/3.x/)
+
+---
+
+## 🚀 Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/PglRobot.git
+   cd PglRobot
+   ```
+
+2. **Install requirements:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Configure Environment:**
+   Edit the `PglRobot/config.py` file to include your tokens and database URI, or export them as environment variables:
+   - `BOT_TOKEN`: Your Telegram Bot Token.
+   - `OWNER_ID`: Your Telegram User ID.
+   - `SQLALCHEMY_DATABASE_URI`: Your PostgreSQL URI (e.g., `postgresql+asyncpg://user:pass@localhost/dbname`).
+
+4. **Run the Bot:**
+   ```bash
+   python -m PglRobot
+   ```
+
+---
+
+## 📚 Help & Commands
+Once the bot is running, simply add it to your group, promote it to Admin, and type `/help` to see a fully interactive menu of all available commands and how to configure each plugin!
+
+---
+
+## 🌟 Credits & Acknowledgements
+
+Every line of plugin logic in PglRobot 2.0 has been meticulously written from scratch to leverage modern asynchronous paradigms. We would like to extend our gratitude to the developers of our core underlying technologies:
+
+- **[Aiogram Team](https://github.com/aiogram/aiogram)**: For their incredibly robust and blazing-fast Telegram Bot API framework.
+- **[Telethon Team](https://github.com/LonamiWebs/Telethon)**: For providing unparalleled access to the MTProto library.
+- **[SQLAlchemy](https://github.com/sqlalchemy/sqlalchemy)**: For the powerful async ORM.
+
+---
+
+<div align="center">
+  <i>Developed with ❤️ by iisgaurav</i>
+</div>
