@@ -61,8 +61,8 @@ def back_keyboard() -> InlineKeyboardMarkup:
 def get_start_caption(first_name: str) -> str:
     return (
         f"👋 <b>Hey {first_name}!</b>\n\n"
-        f"🤖 I'm <b>PglRobot</b> — a next-generation moderation engine </b>.\n"
-        f"🏢 <b>Powered by:</b> @TeamAuraX\n\n"
+        f"🤖 I'm <b>PglRobot</b> — a next-generation moderation engine </b>.\n\n"
+        f"🏢 <b>Powered by:</b> @VegacodesHQ\n\n"
         f"<b>Why choose me?</b>\n"
         f"⚡ <b>Blazing Fast</b>: Powered by an asynchronous hybrid engine (Aiogram 3 + Telethon) for zero-lag moderation.\n"
         f"🛡️ <b>Intelligent Anti-Spam</b>: Instantly detects and bans crypto-scammers and spam rings.\n"
@@ -79,7 +79,7 @@ ABOUT_TEXT = (
     "<b>Language:</b> <code>Python 3.11+</code>\n"
     "<b>Database:</b> <code>PostgreSQL (asyncpg)</code>\n"
     "<b>Strict Typing:</b> <code>100% basedpyright</code>\n\n"
-    "An official @VegaCodesHQ Initiative.\n"
+    "An official @VegacodesHQ Initiative.\n"
     "Built from scratch with ❤️ by @{owner}.\n\n"
     "<i>Blazing fast, 100% async, crash-proof, and built to handle massive communities.</i>"
 )
