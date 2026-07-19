@@ -5,12 +5,11 @@
 # Lead Developer: Gaurav Verma (@iisgaurav)
 # ==============================================================================
 
-import os
 from aiogram import Router, Bot, F
 from aiogram.filters import CommandStart, CommandObject
 from aiogram.types import (
     Message, InlineKeyboardMarkup, InlineKeyboardButton,
-    CallbackQuery, FSInputFile
+    CallbackQuery
 )
 from aiogram.enums import ParseMode
 
@@ -20,7 +19,7 @@ from PglRobot.database.users_sql import update_user
 router = Router()
 
 # Path to the banner image shipped with the bot
-BANNER_PATH = os.path.join(os.path.dirname(__file__), "..", "assets", "profile.png")
+BANNER_URL = "https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg"
 
 # ---------------------------------------------------------------------------
 # Keyboards
@@ -62,8 +61,8 @@ def back_keyboard() -> InlineKeyboardMarkup:
 def get_start_caption(first_name: str) -> str:
     return (
         f"👋 <b>Hey {first_name}!</b>\n\n"
-        f"🤖 I'm <b>PglRobot</b> — a next-generation moderation engine built for the <b>@TeamAuraX</b>.\n"
-        f"🏢 <b>Powered by:</b> @VegaCodesHQ\n"
+        f"🤖 I'm <b>PglRobot</b> — a next-generation moderation engine </b>.\n"
+        f"🏢 <b>Powered by:</b> @TeamAuraX\n\n"
         f"<b>Why choose me?</b>\n"
         f"⚡ <b>Blazing Fast</b>: Powered by an asynchronous hybrid engine (Aiogram 3 + Telethon) for zero-lag moderation.\n"
         f"🛡️ <b>Intelligent Anti-Spam</b>: Instantly detects and bans crypto-scammers and spam rings.\n"
@@ -103,15 +102,16 @@ async def start_private(message: Message, bot: Bot, command: CommandObject):
     bot_username = me.username or ""
     caption = get_start_caption(user.first_name or "there")
 
-    # Send banner photo with caption — fallback to plain text if image missing
-    if os.path.exists(BANNER_PATH):
+    # Send banner photo with caption via Telegraph URL for instant caching
+    try:
         await message.answer_photo(
-            photo=FSInputFile(BANNER_PATH),
+            photo=BANNER_URL,
             caption=caption,
             parse_mode=ParseMode.HTML,
             reply_markup=start_keyboard(bot_username),
         )
-    else:
+    except Exception:
+        # Fallback to text if URL fails
         await message.answer(
             caption,
             parse_mode=ParseMode.HTML,
