@@ -21,6 +21,15 @@ router = Router()
 # Path to the banner image shipped with the bot
 BANNER_URL = "https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg"
 
+_cached_bot_username = None
+
+async def get_cached_username(bot: Bot) -> str:
+    global _cached_bot_username
+    if not _cached_bot_username:
+        me = await bot.get_me()
+        _cached_bot_username = me.username or "bot"
+    return _cached_bot_username
+
 # ---------------------------------------------------------------------------
 # Keyboards
 # ---------------------------------------------------------------------------
@@ -98,8 +107,7 @@ async def start_private(message: Message, bot: Bot, command: CommandObject):
     if command.args:
         return
 
-    me = await bot.get_me()
-    bot_username = me.username or ""
+    bot_username = await get_cached_username(bot)
     caption = get_start_caption(user.first_name or "there")
 
     # Send banner photo with caption via Telegraph URL for instant caching
@@ -167,13 +175,13 @@ async def cb_about(query: CallbackQuery):
 
 @router.callback_query(F.data == "start:back")
 async def cb_back(query: CallbackQuery, bot: Bot):
-    me = await bot.get_me()
+    bot_username = await get_cached_username(bot)
     caption = get_start_caption(query.from_user.first_name or "there")
     if not isinstance(query.message, Message):
         return
     await query.message.edit_caption(
         caption=caption,
         parse_mode=ParseMode.HTML,
-        reply_markup=start_keyboard(me.username if me.username else "bot"),
+        reply_markup=start_keyboard(bot_username),
     )
     await query.answer()
