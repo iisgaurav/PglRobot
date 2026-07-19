@@ -70,7 +70,7 @@ def back_keyboard() -> InlineKeyboardMarkup:
 def get_start_caption(first_name: str) -> str:
     return (
         f"👋 <b>Hey {first_name}!</b>\n\n"
-        f"🤖 I'm <b>PglRobot</b> — a next-generation moderation engine </b>.\n\n"
+        f"🤖 I'm <b>PglRobot</b> — a next-generation moderation engine.\n\n"
         f"🏢 <b>Powered by:</b> @VegacodesHQ\n\n"
         f"<b>Why choose me?</b>\n"
         f"⚡ <b>Blazing Fast</b>: Powered by an asynchronous hybrid engine (Aiogram 3 + Telethon) for zero-lag moderation.\n"
