@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg" width="200" height="200" alt="PglRobot Logo">
+  <img src="https://telegra.ph/file/f1d7b30b05ba9f0dbf4e5.jpg" alt="PglRobot Logo">
+
   
   # 🤖 PglRobot
   
