@@ -6,6 +6,7 @@
 # ==============================================================================
 
 from aiogram import Router
+from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.filters import Command
 from aiogram.types import Message
 from PglRobot.database import locks_sql, approve_sql, trust_sql
@@ -95,7 +96,6 @@ async def intercept_locks(message: Message):
     user_id = message.from_user.id
     chat_id = message.chat.id
     
-    from aiogram.dispatcher.event.bases import SkipHandler
     # Check bypasses
     if await is_admin(message, user_id):
         raise SkipHandler()

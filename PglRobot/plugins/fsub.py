@@ -6,6 +6,7 @@
 # ==============================================================================
 
 from aiogram import Router, types
+from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.filters import Command
 from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from PglRobot.database import forceSubscribe_sql, approve_sql, trust_sql
@@ -47,7 +48,6 @@ async def set_fsub(message: Message):
     await message.reply(f"Force Subscribe enabled! Users must now join <code>{channel}</code> to speak in this group.")
 
 
-from aiogram.dispatcher.event.bases import SkipHandler
 
 # Global FSub Interceptor
 @fsub_router.message()

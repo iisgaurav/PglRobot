@@ -6,6 +6,7 @@
 # ==============================================================================
 
 from aiogram import Router
+from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.filters import Command
 from aiogram.types import Message
 import aiohttp
@@ -45,7 +46,6 @@ async def toggle_nsfw(message: Message):
 
 
 # Global Interceptor for Photos
-from aiogram.dispatcher.event.bases import SkipHandler
 
 @nsfw_router.message()
 async def check_nsfw(message: Message):
