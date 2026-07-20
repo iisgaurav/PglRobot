@@ -8,6 +8,7 @@
 import re
 import logging
 from aiogram import Router, F, Bot
+from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.types import Message
 from aiogram.filters import Command
 from aiogram.enums import ChatMemberStatus
@@ -126,7 +127,6 @@ async def auto_antispam(message: Message, bot: Bot):
 
     # Check if anti-spam is enabled for this group
     if not is_antispam_on(chat_id):
-        from aiogram.dispatcher.event.bases import SkipHandler
         raise SkipHandler()
 
     # Skip admins and the bot itself
@@ -136,10 +136,8 @@ async def auto_antispam(message: Message, bot: Bot):
             ChatMemberStatus.ADMINISTRATOR,
             ChatMemberStatus.CREATOR,
         ):
-            from aiogram.dispatcher.event.bases import SkipHandler
             raise SkipHandler()
     except Exception:
-        from aiogram.dispatcher.event.bases import SkipHandler
         raise SkipHandler()
 
     text = message.text or ""
@@ -177,7 +175,6 @@ async def auto_antispam(message: Message, bot: Bot):
 
     # ALWAYS let the message pass to other handlers (like notes, purge, etc)
     # even if it was spam (it got deleted anyway) or wasn't spam.
-    from aiogram.dispatcher.event.bases import SkipHandler
     raise SkipHandler()
 
 

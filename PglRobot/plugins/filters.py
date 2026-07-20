@@ -6,6 +6,7 @@
 # ==============================================================================
 
 from aiogram import Router
+from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.filters import Command
 from aiogram.types import Message
 import re
@@ -107,7 +108,6 @@ async def list_filters(message: Message):
     await message.reply(text)
 
 
-from aiogram.dispatcher.event.bases import SkipHandler
 
 # Global Interceptor for Filters
 @filters_router.message()

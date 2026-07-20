@@ -7,6 +7,7 @@
 
 import logging
 from aiogram import Router, F, Bot
+from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.types import Message
 from aiogram.filters import Command, CommandObject
 from aiogram.enums import ParseMode
@@ -52,7 +53,6 @@ async def check_karma(message: Message):
     await message.reply(f"📈 <b>Karma Stats</b>\nUser: {target_user.first_name}\nKarma: <code>{karma}</code>", parse_mode=ParseMode.MARKDOWN)
 
 
-from aiogram.dispatcher.event.bases import SkipHandler
 
 @karma_router.message(F.chat.type.in_({"group", "supergroup"}) & F.reply_to_message)
 async def karma_handler(message: Message):

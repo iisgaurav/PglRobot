@@ -6,6 +6,7 @@
 # ==============================================================================
 
 from aiogram import Router
+from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.filters import Command
 from aiogram.types import Message
 import re
@@ -73,7 +74,6 @@ async def view_blacklists(message: Message):
     await message.reply(text)
 
 # Global interceptor
-from aiogram.dispatcher.event.bases import SkipHandler
 
 @blacklists_router.message()
 async def intercept_blacklists(message: Message):
