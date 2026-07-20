@@ -5,9 +5,11 @@
 # Developer: Gaurav Verma (@iisgaurav)
 # ==============================================================================
 
+import re
 from aiogram import Router, F, Bot
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import Command, CommandStart, CommandObject
+from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters.callback_data import CallbackData
 from aiogram.utils.deep_linking import create_start_link
 
@@ -86,15 +88,32 @@ async def help_page_callback(query: CallbackQuery, callback_data: HelpCallback):
         await query.message.edit_text(HELP_STRINGS, reply_markup=get_help_keyboard(callback_data.page), parse_mode="HTML")
     await query.answer()
 
+ALLOWED_TAGS = {"b", "strong", "i", "em", "code", "s", "strike", "del", "u", "ins", "pre"}
+
+def sanitize_html(text: str) -> str:
+    def replacer(match):
+        tag = match.group(1).lower()
+        if tag.startswith("a "):
+            return match.group(0)
+        clean_tag = tag.replace("/", "")
+        if clean_tag in ALLOWED_TAGS or clean_tag == "a":
+            return match.group(0)
+        return f"&lt;{match.group(1)}&gt;"
+    return re.sub(r'<([^>]+)>', replacer, text)
+
 @help_router.callback_query(HelpCallback.filter(F.action == "module"))
 async def help_module_callback(query: CallbackQuery, callback_data: HelpCallback):
     mod = callback_data.module
-    text = f"Here is the help for the *{mod}* module:\n\n{get_help(mod)}"
+    text = f"Here is the help for the <b>{mod}</b> module:\n\n{sanitize_html(get_help(mod))}"
     
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="Back", callback_data=HelpCallback(action="page", page=0).pack())]
     ])
     
     if isinstance(query.message, Message):
-        await query.message.edit_text(text, reply_markup=keyboard, parse_mode="HTML")
+        try:
+            await query.message.edit_text(text, reply_markup=keyboard, parse_mode="HTML")
+        except TelegramBadRequest as e:
+            if "message is not modified" not in str(e).lower():
+                raise
     await query.answer()
