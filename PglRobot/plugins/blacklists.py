@@ -6,6 +6,7 @@
 # ==============================================================================
 
 from aiogram import Router
+import html
 from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.filters import Command
 from aiogram.types import Message
@@ -30,7 +31,7 @@ async def add_blacklist(message: Message):
         
     word = args[1].lower()
     await blacklist_sql.add_to_blacklist(chat_id, word)
-    await message.reply(f"Added <code>{word}</code> to the blacklist in this group. Any message containing this word will be deleted.")
+    await message.reply(f"Added <code>{html.escape(word)}</code> to the blacklist in this group. Any message containing this word will be deleted.")
 
 
 @blacklists_router.message(Command("unblacklist"))
@@ -49,7 +50,7 @@ async def rem_blacklist(message: Message):
     word = args[1].lower()
     removed = await blacklist_sql.rm_from_blacklist(chat_id, word)
     if removed:
-        await message.reply(f"Removed <code>{word}</code> from the blacklist.")
+        await message.reply(f"Removed <code>{html.escape(word)}</code> from the blacklist.")
     else:
         await message.reply("That word is not in the blacklist.")
 
@@ -104,7 +105,7 @@ async def intercept_blacklists(message: Message):
             try:
                 await message.delete()
                 # Optional: send a warning
-                # await message.answer(f"Deleted message from {message.from_user.first_name} for containing a blacklisted word.")
+                # await message.answer(f"Deleted message from {html.escape(message.from_user.first_name)} for containing a blacklisted word.")
             except Exception:
                 pass
             return # Swallow if dirty
@@ -114,9 +115,9 @@ async def intercept_blacklists(message: Message):
 
 __help__ = """
 <b>Admin Commands:</b>
-- /addblacklist [word]: Adds a word to the chat blacklist.
-- /unblacklist [word]: Removes the word.
-- /blacklists: Shows all blacklisted words.
+- <code>/addblacklist [word]</code>: Adds a word to the chat blacklist.
+- <code>/unblacklist [word]</code>: Removes the word.
+- <code>/blacklists</code>: Shows all blacklisted words.
 """
 
 from PglRobot.utils.help_system import register_help

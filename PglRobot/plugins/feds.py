@@ -6,6 +6,7 @@
 # ==============================================================================
 
 import logging
+import html
 from aiogram import Router, F, Bot
 from aiogram.types import Message, ChatMemberUpdated
 from aiogram.filters import Command, CommandObject
@@ -31,7 +32,7 @@ async def new_fed(message: Message, command: CommandObject):
     fed_id = await sql.create_fed(fed_name, message.from_user.id)
     await message.reply(
         f"🌐 <b>Federation Created!</b>\n\n<b>Name:</b> {fed_name}\n<b>Fed ID:</b> <code>{fed_id}</code>\n\nUse <code>/joinfed {fed_id}</code> in your groups to join this federation.",
-        parse_mode=ParseMode.MARKDOWN
+        parse_mode=ParseMode.HTML
     )
 
 @feds_router.message(Command("joinfed"), F.chat.type.in_({"group", "supergroup"}), CREATOR)
@@ -45,7 +46,7 @@ async def join_fed_cmd(message: Message, command: CommandObject):
         return await message.reply("Federation not found.")
         
     await sql.join_fed(message.chat.id, fed_id)
-    await message.reply(f"✅ <b>Successfully joined the federation:</b> {fed.fed_name}")
+    await message.reply(f"✅ <b>Successfully joined the federation:</b> {html.escape(fed.fed_name or '')}")
 
 @feds_router.message(Command("leavefed"), F.chat.type.in_({"group", "supergroup"}), CREATOR)
 async def leave_fed_cmd(message: Message):
@@ -85,7 +86,7 @@ async def fban_user(message: Message, command: CommandObject, bot: Bot):
         return await message.reply("Please reply to a user or provide their ID.")
         
     await sql.add_fban(fed_id, target_user.id, message.from_user.id, reason)
-    await message.reply(f"🔨 <b>Fed Ban Executed!</b>\n<b>User:</b> {target_user.first_name}\n<b>Fed:</b> {fed.fed_name}", parse_mode=ParseMode.MARKDOWN)
+    await message.reply(f"🔨 <b>Fed Ban Executed!</b>\n<b>User:</b> {html.escape(target_user.first_name or '')}\n<b>Fed:</b> {html.escape(fed.fed_name or '')}", parse_mode=ParseMode.HTML)
 
 @feds_router.message(Command("unfban"), F.chat.type.in_({"group", "supergroup"}), ADMIN)
 async def unfban_user(message: Message, command: CommandObject, bot: Bot):
@@ -113,7 +114,7 @@ async def unfban_user(message: Message, command: CommandObject, bot: Bot):
         return await message.reply("Please reply to a user or provide their ID.")
         
     await sql.remove_fban(fed_id, target_user.id)
-    await message.reply(f"✅ <b>Fed Ban Removed!</b>\n<b>User:</b> {target_user.first_name}", parse_mode=ParseMode.MARKDOWN)
+    await message.reply(f"✅ <b>Fed Ban Removed!</b>\n<b>User:</b> {html.escape(target_user.first_name or '')}", parse_mode=ParseMode.HTML)
 
 # Passive FBan Enforcement when they join
 @feds_router.chat_member()
@@ -138,11 +139,11 @@ __help__ = """
 Federations allow you to share a global ban list across multiple groups! If a user is FBanned, they are banned from all groups in the federation.
 
 <b>Commands:</b>
-• /newfed <code><name></code> — Create a new federation.
-• /joinfed <code><fed_id></code> — (Group Creator only) Join your group to a fed.
-• /leavefed — (Group Creator only) Leave the current fed.
-• /fban <code><reply/id></code> — (Fed Owner only) Ban a user from the entire federation.
-• /unfban <code><reply/id></code> — (Fed Owner only) Unban a user from the federation.
+- /newfed <code><name></code> — Create a new federation.
+- /joinfed <code><fed_id></code> — (Group Creator only) Join your group to a fed.
+- /leavefed — (Group Creator only) Leave the current fed.
+- /fban <code><reply/id></code> — (Fed Owner only) Ban a user from the entire federation.
+- /unfban <code><reply/id></code> — (Fed Owner only) Unban a user from the federation.
 """
 
 register_help("Federations", __help__)

@@ -138,11 +138,11 @@ async def temp_mute_user(message: Message, command: CommandObject):
         await message.reply(f"Failed to temp-mute user. Error: {str(e)}")
 
 __help__ = """
-*Muting Commands:*
- • <code>/mute</code> or <code>/m</code>: Mutes a user permanently.
- • <code>/unmute</code>: Unmutes a user.
- • <code>/tmute <time></code> or <code>/tempmute <time></code>: Temporarily mutes a user.
-   Time format examples: <code>1d</code> (1 day), <code>2h</code> (2 hours), <code>30m</code> (30 minutes).
+<b>Muting Commands:</b>
+- <code>/mute</code> or <code>/m</code>: Mutes a user permanently.
+- <code>/unmute</code>: Unmutes a user.
+- <code>/tmute <time></code> or <code>/tempmute <time></code>: Temporarily mutes a user.
+Time format examples: <code>1d</code> (1 day), <code>2h</code> (2 hours), <code>30m</code> (30 minutes).
 """
 from PglRobot.utils.help_system import register_help
 register_help("Muting", __help__)

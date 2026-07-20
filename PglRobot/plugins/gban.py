@@ -112,8 +112,8 @@ __help__ = """
 Global bans allow Sudo Users to ban a scammer or spammer from all groups the bot is an admin in simultaneously.
 
 <b>Sudo Commands:</b>
-• /gban <code><reply/id> <reason></code> — Globally ban a user.
-• /ungban <code><reply/id></code> — Remove a global ban.
+- /gban <code><reply/id> <reason></code> — Globally ban a user.
+- /ungban <code><reply/id></code> — Remove a global ban.
 
 <i>Note: If a GBanned user joins any group where the bot is an admin, they will be instantly banned.</i>
 """

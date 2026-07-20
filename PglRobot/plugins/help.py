@@ -25,33 +25,34 @@ class HelpCallback(CallbackData, prefix="help"):
 def get_help_keyboard(page: int = 0) -> InlineKeyboardMarkup:
     modules = get_all_modules()
     
-    # Pagination: 6 modules per page (2 columns, 3 rows)
-    PER_PAGE = 6
+    # Pagination: 10 modules per page (2 columns, 5 rows)
+    PER_PAGE = 10
     start_idx = page * PER_PAGE
     end_idx = start_idx + PER_PAGE
-    
+
     current_modules = modules[start_idx:end_idx]
-    
+
     keyboard = []
     row = []
     for i, mod in enumerate(current_modules):
-        row.append(InlineKeyboardButton(text=mod, callback_data=HelpCallback(action="module", module=mod).pack()))
+        # Include current page in callback data to allow returning to same page
+        row.append(InlineKeyboardButton(text=mod, callback_data=HelpCallback(action="module", module=mod, page=page).pack()))
         if len(row) == 2:
             keyboard.append(row)
             row = []
     if row:
         keyboard.append(row)
-        
+
     # Add navigation buttons
     nav_row = []
     if page > 0:
         nav_row.append(InlineKeyboardButton(text="⬅️ Previous", callback_data=HelpCallback(action="page", page=page-1).pack()))
     if end_idx < len(modules):
         nav_row.append(InlineKeyboardButton(text="Next ➡️", callback_data=HelpCallback(action="page", page=page+1).pack()))
-        
+
     if nav_row:
         keyboard.append(nav_row)
-        
+
     return InlineKeyboardMarkup(inline_keyboard=keyboard)
 
 HELP_STRINGS = """
@@ -107,7 +108,7 @@ async def help_module_callback(query: CallbackQuery, callback_data: HelpCallback
     text = f"Here is the help for the <b>{mod}</b> module:\n\n{sanitize_html(get_help(mod))}"
     
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="Back", callback_data=HelpCallback(action="page", page=0).pack())]
+        [InlineKeyboardButton(text="Back", callback_data=HelpCallback(action="page", page=callback_data.page).pack())]
     ])
     
     if isinstance(query.message, Message):

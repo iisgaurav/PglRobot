@@ -88,9 +88,9 @@ async def list_approved(message: Message):
 
 __help__ = """
 <b>Admin Commands:</b>
-- /approve [user]: Whitelists a user in the group.
-- /disapprove [user]: Removes whitelist.
-- /approved: Lists all approved users.
+- <code>/approve [user]</code>: Whitelists a user in the group.
+- <code>/disapprove [user]</code>: Removes whitelist.
+- <code>/approved</code>: Lists all approved users.
 """
 
 from PglRobot.utils.help_system import register_help

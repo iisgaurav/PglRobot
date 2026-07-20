@@ -64,7 +64,7 @@ async def ban_user(message: Message, bot: Bot, command: CommandObject):
         await bot.ban_chat_member(message.chat.id, user_id)
         reply = "Banned!"
         if reason:
-            reply += f"\nReason: {html.escape(reason)}"
+            reply += f"\nReason: {html.escape(reason or '')}"
         await message.reply(reply)
     except TelegramBadRequest as e:
         await message.reply(f"Failed to ban: {e}")
@@ -114,7 +114,7 @@ async def kick_user(message: Message, bot: Bot, command: CommandObject):
         await bot.unban_chat_member(message.chat.id, user_id)
         reply = "Kicked!"
         if reason:
-            reply += f"\nReason: {html.escape(reason)}"
+            reply += f"\nReason: {html.escape(reason or '')}"
         await message.reply(reply)
     except TelegramBadRequest:
         await message.reply("I can't kick that user.")
@@ -146,7 +146,7 @@ async def mute_user(message: Message, bot: Bot, command: CommandObject):
         await bot.restrict_chat_member(message.chat.id, user_id, permissions=permissions)
         reply = "Muted!"
         if reason:
-            reply += f"\nReason: {html.escape(reason)}"
+            reply += f"\nReason: {html.escape(reason or '')}"
         await message.reply(reply)
     except TelegramBadRequest:
         await message.reply("I can't mute that user.")
@@ -240,7 +240,7 @@ async def temp_mute_user(message: Message, bot: Bot, command: CommandObject):
         )
         reply = f"Muted for {time_val}!"
         if reason:
-            reply += f"\nReason: {html.escape(reason)}"
+            reply += f"\nReason: {html.escape(reason or '')}"
         await message.reply(reply)
     except Exception as e:
         await message.reply(f"Failed to temp-mute user. Error: {str(e)}")
@@ -289,7 +289,7 @@ async def warn_user(message: Message, bot: Bot, command: CommandObject):
     else:
         text = f"User has been warned. ({num_warns}/{limit})"
         if reason:
-            text += f"\nReason: {html.escape(reason)}"
+            text += f"\nReason: {html.escape(reason or '')}"
         await message.reply(text)
 
 
@@ -330,7 +330,7 @@ async def get_user_warns(message: Message, command: CommandObject):
     if reasons:
         text += "Reasons:\n"
         for i, r in enumerate(reasons, 1):
-            text += f"{i}. {html.escape(r)}\n"
+            text += f"{i}. {html.escape(r or '')}\n"
     await message.reply(text)
 
 
@@ -394,29 +394,29 @@ async def unpin_message(message: Message, bot: Bot):
 # ============================================================
 
 __help__ = """
-*🛡️ Admin Commands:*
+<b>🛡️ Admin Commands:</b>
 
-*Bans:*
- • <code>/ban</code> or <code>/dban <user></code> — Permanently ban a user.
- • <code>/unban <user></code> — Unban a user.
- • <code>/kick</code> or <code>/k <user></code> — Kick a user (they can rejoin).
+<b>Bans</b>
+- <code>/ban</code> or <code>/dban <user></code> — Permanently ban a user.
+- <code>/unban <user></code> — Unban a user.
+- <code>/kick</code> or <code>/k <user></code> — Kick a user (they can rejoin).
 
-*Muting:*
- • <code>/mute</code> or <code>/m <user></code> — Mute a user permanently.
- • <code>/unmute <user></code> — Unmute a user.
- • <code>/tmute</code> or <code>/tempmute <user> <time></code> — Temporarily mute. (e.g. <code>1h</code>, <code>30m</code>, <code>2d</code>)
+<b>Muting</b>
+- <code>/mute</code> or <code>/m <user></code> — Mute a user permanently.
+- <code>/unmute <user></code> — Unmute a user.
+- <code>/tmute</code> or <code>/tempmute <user> <time></code> — Temporarily mute. (e.g. <code>1h</code>, <code>30m</code>, <code>2d</code>)
 
-*Warns:*
- • <code>/warn <user></code> — Warn a user. Hits the limit → auto-ban/kick.
- • <code>/unwarn</code> or <code>/rmwarn <user></code> — Remove the latest warn.
- • <code>/warns <user></code> — Show a user's warn count and reasons.
- • <code>/warnlimit <number></code> — Set the warn limit (default: 3).
+<b>Warns</b>
+- <code>/warn <user></code> — Warn a user. Hits the limit → auto-ban/kick.
+- <code>/unwarn</code> or <code>/rmwarn <user></code> — Remove the latest warn.
+- <code>/warns <user></code> — Show a user's warn count and reasons.
+- <code>/warnlimit <number></code> — Set the warn limit (default: 3).
 
-*Other:*
- • <code>/pin</code> — Reply to a message to pin it.
- • <code>/unpin</code> — Unpin a message.
+<b>Other</b>
+- <code>/pin</code> — Reply to a message to pin it.
+- <code>/unpin</code> — Unpin a message.
 
-Note: Admins can never be banned, kicked, muted, or warned by the bot.
+<i>Note: Admins can never be banned, kicked, muted, or warned by the bot.</i>
 """
 
 from PglRobot.utils.help_system import register_help

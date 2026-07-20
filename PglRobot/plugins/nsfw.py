@@ -6,6 +6,7 @@
 # ==============================================================================
 
 from aiogram import Router
+import html
 from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.filters import Command
 from aiogram.types import Message
@@ -96,7 +97,7 @@ async def check_nsfw(message: Message):
                             
                         if is_nsfw:
                             await message.delete()
-                            await message.answer(f"Deleted a photo from {message.from_user.first_name} because it was detected as NSFW/Gore.")
+                            await message.answer(f"Deleted a photo from {html.escape(message.from_user.first_name)} because it was detected as NSFW/Gore.")
                             return # Swallow dirty message
                             
     except Exception as e:
@@ -107,7 +108,7 @@ async def check_nsfw(message: Message):
 
 __help__ = """
 <b>Admin Commands:</b>
-- /nsfw [on/off]: Toggles NSFW image scanning.
+- <code>/nsfw [on/off]</code>: Toggles NSFW image scanning.
 """
 
 from PglRobot.utils.help_system import register_help

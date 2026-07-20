@@ -139,14 +139,14 @@ async def unmute_user(message: Message, command: CommandObject):
         await message.reply(f"Failed to unmute user. Error: {str(e)}")
 
 __help__ = """
-*Bans Commands:*
- • <code>/ban</code> or <code>/b</code>: Bans a user from the chat.
- • <code>/unban</code>: Unbans a user.
- • <code>/kick</code> or <code>/k</code>: Kicks a user.
- • <code>/mute</code> or <code>/m</code>: Mutes a user.
- • <code>/unmute</code>: Unmutes a user.
+<b>Bans Commands:</b>
+- <code>/ban</code> or <code>/b</code>: Bans a user from the chat.
+- <code>/unban</code>: Unbans a user.
+- <code>/kick</code> or <code>/k</code>: Kicks a user.
+- <code>/mute</code> or <code>/m</code>: Mutes a user.
+- <code>/unmute</code>: Unmutes a user.
 
-Note: You can optionally specify a reason like <code>/ban @user being a jerk</code>
+<i>Note: You can optionally specify a reason like <code>/ban @user being a jerk</code></i>
 """
 from PglRobot.utils.help_system import register_help
 register_help("Bans", __help__)

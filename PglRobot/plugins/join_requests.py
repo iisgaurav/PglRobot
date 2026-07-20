@@ -66,7 +66,7 @@ async def on_join_request(update: ChatJoinRequest):
 
 __help__ = """
 <b>Admin Commands:</b>
-- /autoapprove [on/off]: Toggles auto-approval of join requests.
+- <code>/autoapprove [on/off]</code>: Toggles auto-approval of join requests.
 """
 
 from PglRobot.utils.help_system import register_help

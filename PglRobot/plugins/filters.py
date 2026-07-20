@@ -6,6 +6,7 @@
 # ==============================================================================
 
 from aiogram import Router
+import html
 from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.filters import Command
 from aiogram.types import Message
@@ -67,7 +68,7 @@ async def add_custom_filter(message: Message):
         reply_text = args[2]
         
     await cust_filters_sql.add_filter(chat_id, keyword, reply_text, file_type, file_id, has_buttons)
-    await message.reply(f"Filter added for <code>{keyword}</code> in <b>{chat_title}</b>!")
+    await message.reply(f"Filter added for <code>{html.escape(keyword or '')}</code> in <b>{html.escape(chat_title or '')}</b>!")
 
 
 @filters_router.message(Command("stop"))
@@ -86,7 +87,7 @@ async def remove_custom_filter(message: Message):
     keyword = args[1].lower()
     removed = await cust_filters_sql.remove_filter(chat_id, keyword)
     if removed:
-        await message.reply(f"Filter for <code>{keyword}</code> removed in <b>{chat_title}</b>.")
+        await message.reply(f"Filter for <code>{html.escape(keyword or '')}</code> removed in <b>{html.escape(chat_title or '')}</b>.")
     else:
         await message.reply("That filter does not exist.")
 
@@ -99,9 +100,9 @@ async def list_filters(message: Message):
         
     filters = await cust_filters_sql.get_all_filters(chat_id)
     if not filters:
-        return await message.reply(f"There are no custom filters in <b>{chat_title}</b>.")
+        return await message.reply(f"There are no custom filters in <b>{html.escape(chat_title or '')}</b>.")
         
-    text = f"<b>Filters in {chat_title}:</b>\n"
+    text = f"<b>Filters in {html.escape(chat_title or '')}:</b>\n"
     for f in filters:
         text += f"- <code>{f.keyword}</code>\n"
         

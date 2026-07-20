@@ -91,7 +91,7 @@ async def view_locks(message: Message):
 @locks_router.message()
 async def intercept_locks(message: Message):
     if message.chat.type == "private" or not message.from_user:
-        return
+        raise SkipHandler()
         
     user_id = message.from_user.id
     chat_id = message.chat.id
@@ -149,9 +149,9 @@ async def intercept_locks(message: Message):
 
 __help__ = """
 <b>Admin Commands:</b>
-- /lock [type]: Locks a specific media type (e.g., url, photo, audio).
-- /unlock [type]: Unlocks the media type.
-- /locks: Shows current group locks.
+- <code>/lock [type]</code>: Locks a specific media type (e.g., url, photo, audio).
+- <code>/unlock [type]</code>: Unlocks the media type.
+- <code>/locks</code>: Shows current group locks.
 """
 
 from PglRobot.utils.help_system import register_help

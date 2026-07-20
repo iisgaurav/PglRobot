@@ -226,12 +226,12 @@ __help__ = """
 
 Send all moderation events (bans, kicks, warns, mutes) to a private log channel.
 
-<b>Admins only:</b>
-• /setlog &lt;channel_id&gt; — Set the log channel (bot must be admin there)
-• /unsetlog — Remove the log channel
-• /logsettings — View current log configuration
+<b>Admins only</b>
+- /setlog &lt;channel_id&gt; — Set the log channel (bot must be admin there)
+- /unsetlog — Remove the log channel
+- /logsettings — View current log configuration
 
-<b>How to set up:</b>
+<b>How to set up</b>
 1. Create a private channel
 2. Add the bot as admin with Post Messages permission
 3. Get the channel ID (use @userinfobot or similar)

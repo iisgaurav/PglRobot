@@ -80,10 +80,10 @@ async def clear_rules(message: Message):
     await message.reply("Successfully cleared rules!")
 
 __help__ = """
-*Rules Commands:*
- • <code>/rules</code>: Get the rules for this chat.
- • <code>/setrules <text></code>: Set the rules for this chat.
- • <code>/clearrules</code>: Clear the rules for this chat.
+<b>Rules Commands:</b>
+- <code>/rules</code>: Get the rules for this chat.
+- <code>/setrules <text></code>: Set the rules for this chat.
+- <code>/clearrules</code>: Clear the rules for this chat.
 """
 from PglRobot.utils.help_system import register_help
 register_help("Rules", __help__)

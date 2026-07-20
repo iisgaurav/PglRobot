@@ -120,34 +120,34 @@ async def flood_watcher(message: Message, bot: Bot):
     try:
         if flood_type == 1:  # ban
             await bot.ban_chat_member(chat.id, user.id)
-            await message.answer(f"{name} has been banned for flooding more than {limit} messages in a row!")
+            await message.answer(f"{html.escape(name)} has been banned for flooding more than {limit} messages in a row!")
             
         elif flood_type == 2:  # kick
             await bot.ban_chat_member(chat.id, user.id)
             await bot.unban_chat_member(chat.id, user.id)
-            await message.answer(f"{name} has been kicked for flooding!")
+            await message.answer(f"{html.escape(name)} has been kicked for flooding!")
             
         elif flood_type == 3:  # mute
             await bot.restrict_chat_member(chat.id, user.id, permissions=ChatPermissions(can_send_messages=False))
-            await message.answer(f"{name} has been muted for flooding!")
+            await message.answer(f"{html.escape(name)} has been muted for flooding!")
             
         elif flood_type == 4:  # tban
             until_date = extract_time(value)
             if not until_date:
                 until_date = extract_time("1d")  # Fallback to 1 day
             await bot.ban_chat_member(chat.id, user.id, until_date=until_date)
-            await message.answer(f"{name} has been temporarily banned for flooding!")
+            await message.answer(f"{html.escape(name)} has been temporarily banned for flooding!")
             
         elif flood_type == 5:  # tmute
             until_date = extract_time(value)
             if not until_date:
                 until_date = extract_time("1d")
             await bot.restrict_chat_member(chat.id, user.id, permissions=ChatPermissions(can_send_messages=False), until_date=until_date)
-            await message.answer(f"{name} has been temporarily muted for flooding!")
+            await message.answer(f"{html.escape(name)} has been temporarily muted for flooding!")
             
     except TelegramBadRequest as e:
         if "not enough rights" in str(e).lower():
-            await message.answer(f"I tried to punish {name} for flooding, but I don't have enough admin rights to restrict members!")
+            await message.answer(f"I tried to punish {html.escape(name)} for flooding, but I don't have enough admin rights to restrict members!")
 
     raise SkipHandler()
 

@@ -85,7 +85,7 @@ __help__ = """
 - <code>/enable [command]</code>: Re-enables a disabled command.
 - <code>/disabled</code>: Lists all disabled commands in the current group.
 
-*Note: You do not need to include the slash when disabling (e.g. <code>/disable rules</code> and <code>/disable /rules</code> both work).*
+<i>Note: You do not need to include the slash when disabling (e.g. <code>/disable rules</code> and <code>/disable /rules</code> both work).</i>
 """
 
 register_help("Disabling", __help__)
