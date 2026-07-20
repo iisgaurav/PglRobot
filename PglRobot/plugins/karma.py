@@ -104,12 +104,12 @@ __help__ = """
 Upvote or downvote users based on their helpfulness!
 
 <b>Admin Commands:</b>
-• /karmatoggle <code><on/off></code> — Enable or disable the karma system in your group.
+- /karmatoggle <code><on/off></code> — Enable or disable the karma system in your group.
 
 <b>User Commands:</b>
-• /karma — Check your karma score. (Or reply to someone to check theirs).
-• <code>+1</code>, <code>thanks</code>, <code>pro</code> (reply to a message) — Give 1 karma to a user.
-• <code>-1</code>, <code>noob</code>, <code>downvote</code> (reply to a message) — Deduct 1 karma from a user.
+- /karma — Check your karma score. (Or reply to someone to check theirs).
+- <code>+1</code>, <code>thanks</code>, <code>pro</code> (reply to a message) — Give 1 karma to a user.
+- <code>-1</code>, <code>noob</code>, <code>downvote</code> (reply to a message) — Deduct 1 karma from a user.
 """
 
 register_help("Karma", __help__)

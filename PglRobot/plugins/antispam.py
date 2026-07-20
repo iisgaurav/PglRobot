@@ -121,7 +121,7 @@ async def antispam_pm(message: Message):
 async def auto_antispam(message: Message, bot: Bot):
     """Automatically detect and remove spam messages."""
     if not message.from_user:
-        return
+        raise SkipHandler()
 
     chat_id = message.chat.id
 
@@ -188,11 +188,11 @@ __help__ = """
 Automatically detects and bans crypto/USDT exchange spammers.
 
 <b>Commands:</b>
-• /antispam — Show current anti-spam status
-• /antispam on — Enable auto-spam detection (default: ON)
-• /antispam off — Disable auto-spam detection
+- <code>/antispam</code> — Show current anti-spam status
+- <code>/antispam on</code> — Enable auto-spam detection (default: ON)
+- <code>/antispam off</code> — Disable auto-spam detection
 
-<b>How it works:</b>
+<b>How it works</b>
 When a non-admin posts a message matching known spam patterns (crypto rates, USDT exchanges, fund types), the bot will:
 1. Instantly delete the message
 2. Permanently ban the sender

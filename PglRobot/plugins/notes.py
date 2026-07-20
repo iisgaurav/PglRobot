@@ -6,6 +6,7 @@
 # ==============================================================================
 
 import re
+import html
 import random
 import logging
 
@@ -123,7 +124,7 @@ async def send_note(message: Message, chat_id: int, notename: str, show_none: bo
     if not note:
         if show_none:
             await message.reply(
-                f"❌ Note <code>#{notename}</code> doesn't exist!",
+                f"❌ Note <code>#{html.escape(notename)}</code> doesn't exist!",
                 parse_mode=ParseMode.HTML,
             )
         return
@@ -183,14 +184,14 @@ async def send_note(message: Message, chat_id: int, notename: str, show_none: bo
         else:
             # TEXT or BUTTON_TEXT
             await message.reply(
-                text or f"<code>#{notename}</code>",
+                text or f"<code>#{html.escape(notename)}</code>",
                 parse_mode=ParseMode.HTML,
                 reply_markup=keyboard,
             )
 
     except TelegramBadRequest as e:
         logger.error("Failed to send note %s: %s", notename, e)
-        await message.reply(f"⚠️ Failed to send note <code>#{notename}</code>.", parse_mode=ParseMode.HTML)
+        await message.reply(f"⚠️ Failed to send note <code>#{html.escape(notename)}</code>.", parse_mode=ParseMode.HTML)
 
 
 # ---------------------------------------------------------------------------
@@ -306,11 +307,11 @@ async def clear_note(message: Message, command: CommandObject):
 
     if removed:
         await message.reply(
-            f"🗑️ Note <code>#{notename}</code> deleted.", parse_mode=ParseMode.HTML
+            f"🗑️ Note <code>#{html.escape(notename)}</code> deleted.", parse_mode=ParseMode.HTML
         )
     else:
         await message.reply(
-            f"❌ No note named <code>#{notename}</code> found.", parse_mode=ParseMode.HTML
+            f"❌ No note named <code>#{html.escape(notename)}</code> found.", parse_mode=ParseMode.HTML
         )
 
 
@@ -372,24 +373,24 @@ __help__ = """
 
 Save and recall notes in your group. Notes can store text, photos, videos, stickers, documents and more!
 
-<b>Everyone:</b>
-• /get &lt;notename&gt; — Get a note
-• #notename — Shortcut to get a note
-• /notes or /saved — List all saved notes in this chat
+<b>Everyone</b>
+- /get &lt;notename&gt; — Get a note
+- #notename — Shortcut to get a note
+- /notes or /saved — List all saved notes in this chat
 
-<b>Admins only:</b>
-• /save &lt;notename&gt; &lt;text&gt; — Save a text note
-• /save &lt;notename&gt; — Reply to any message to save it as a note
-• /clear &lt;notename&gt; — Delete a specific note
+<b>Admins only</b>
+- /save &lt;notename&gt; &lt;text&gt; — Save a text note
+- /save &lt;notename&gt; — Reply to any message to save it as a note
+- /clear &lt;notename&gt; — Delete a specific note
 
-<b>Owner only:</b>
-• /removeallnotes — Wipe all notes (asks for confirmation)
+<b>Owner only</b>
+- /removeallnotes — Wipe all notes (asks for confirmation)
 
-<b>💡 Tips:</b>
-• Add inline buttons: <code>[Label](buttonurl:https://example.com)</code>
-• Same-line buttons: add <code>:same</code> → <code>[Btn](buttonurl:url:same)</code>
-• Random responses: separate variants with <code>%%%</code>
-• Note names are always lowercase
+<b>💡 Tips</b>
+- Add inline buttons: <code>[Label](buttonurl:https://example.com)</code>
+- Same-line buttons: add <code>:same</code> → <code>[Btn](buttonurl:url:same)</code>
+- Random responses: separate variants with <code>%%%</code>
+- Note names are always lowercase
 """
 
 from PglRobot.utils.help_system import register_help

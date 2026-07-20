@@ -120,11 +120,11 @@ async def set_warn_limit(message: Message, command: CommandObject):
         await message.reply("Please provide a valid number.")
 
 __help__ = """
-*Warns Commands:*
- • <code>/warn <user></code>: Warns a user.
- • <code>/unwarn <user></code> or <code>/rmwarn <user></code>: Removes the latest warn from a user.
- • <code>/warns <user></code>: Shows a user's warns.
- • <code>/warnlimit <limit></code>: Sets the warn limit for the chat (default is 3).
+<b>Warns Commands:</b>
+- <code>/warn <user></code>: Warns a user.
+- <code>/unwarn <user></code> or <code>/rmwarn <user></code>: Removes the latest warn from a user.
+- <code>/warns <user></code>: Shows a user's warns.
+- <code>/warnlimit <limit></code>: Sets the warn limit for the chat (default is 3).
 """
 from PglRobot.utils.help_system import register_help
 register_help("Warns", __help__)

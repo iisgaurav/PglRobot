@@ -79,11 +79,11 @@ async def check_trust(message: Message):
 
 __help__ = """
 <b>Admin Commands:</b>
-- /trust [user]: Adds 1 trust score to the user.
-- /untrust [user]: Removes 1 trust score from the user.
+- <code>/trust [user]</code>: Adds 1 trust score to the user.
+- <code>/untrust [user]</code>: Removes 1 trust score from the user.
 
 <b>User Commands:</b>
-- /trustscore [user]: Shows trust score.
+- <code>/trustscore [user]</code>: Shows trust score.
 """
 
 from PglRobot.utils.help_system import register_help

@@ -124,12 +124,12 @@ def setup_nightmode(bot: Bot):
 __help__ = """
 <b>🌙 Night Mode</b>
 
-Night mode automatically locks the group chat at night so members can't spam while admins are asleep! 
+Night mode automatically locks the group chat at night so members can't spam while admins are asleep!
 
 When enabled, the group will automatically close at <b>12:00 AM (IST)</b> and open at <b>6:00 AM (IST)</b>.
 
 <b>Admin Commands:</b>
-• /nightmode <code><on/off></code> — Enable or disable night mode in your group.
+- /nightmode <code><on/off></code> — Enable or disable night mode in your group.
 """
 
 register_help("Night Mode", __help__)

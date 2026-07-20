@@ -82,8 +82,8 @@ __help__ = """
 Find and remove "Deleted Accounts" from your group to keep it clean and active!
 
 <b>Admin Commands:</b>
-• /zombies — Scan the group and count how many deleted accounts there are.
-• /zombies clean — Scan and kick all deleted accounts automatically.
+- /zombies — Scan the group and count how many deleted accounts there are.
+- /zombies clean — Scan and kick all deleted accounts automatically.
 """
 
 register_help("Zombies", __help__)

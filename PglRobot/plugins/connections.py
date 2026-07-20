@@ -6,6 +6,7 @@
 # ==============================================================================
 
 from aiogram import Router
+import html
 from aiogram.filters import Command
 from aiogram.types import Message
 from aiogram.exceptions import TelegramBadRequest
@@ -60,7 +61,7 @@ async def connect_chat(message: Message):
     await connection_sql.connect(message.from_user.id, target_chat_id)
     await connection_sql.add_history(message.from_user.id, target_chat_id, chat_title or "Unknown")
     
-    await message.reply(f"Successfully connected to <b>{chat_title}</b>!\nCommands like <code>/filter</code> will now affect that group.")
+    await message.reply(f"Successfully connected to <b>{html.escape(chat_title or '')}</b>!\nCommands like <code>/filter</code> will now affect that group.")
 
 
 @connections_router.message(Command("disconnect"))
@@ -82,16 +83,16 @@ async def check_connection(message: Message):
         
     chat_id, chat_title = await resolve_chat(message)
     if chat_id:
-        await message.reply(f"You are currently connected to: <b>{chat_title}</b> (<code>{chat_id}</code>)")
+        await message.reply(f"You are currently connected to: <b>{html.escape(chat_title or '')}</b> (<code>{chat_id}</code>)")
     else:
         await message.reply("You are not connected to any chat. Use <code>/connect [chat_id]</code> to connect.")
 
 
 __help__ = """
 <b>Admin Commands:</b>
-- /connect [chat_id]: Links your private message with a specific group.
-- /disconnect: Unlinks your private message.
-- /connection: Shows your currently connected group.
+- <code>/connect [chat_id]</code>: Links your private message with a specific group.
+- <code>/disconnect</code>: Unlinks your private message.
+- <code>/connection</code>: Shows your currently connected group.
 """
 
 from PglRobot.utils.help_system import register_help

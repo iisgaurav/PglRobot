@@ -105,7 +105,7 @@ __help__ = """
 - <code>@all</code> or <code>/tagall [message]</code>: Mentions all members in the group by looping through the bot's internal member cache.
 - <code>/cancel</code>: Stops an ongoing tag-all process.
 
-*Note: The bot chunks mentions (5 per message) and pauses between messages to prevent being rate-limited by Telegram.*
+<i>Note: The bot chunks mentions (5 per message) and pauses between messages to prevent being rate-limited by Telegram.</i>
 """
 
 register_help("Tag All", __help__)

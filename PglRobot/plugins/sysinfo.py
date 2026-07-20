@@ -215,8 +215,8 @@ async def stats(message: Message):
 __help__ = """
 <b>🖥️ Sysinfo</b> <i>(Sudo only)</i>
 
-• /sysinfo — Full system status: CPU, RAM, Disk, Network, Bot process info
-• /stats — Database statistics across all groups
+- /sysinfo — Full system status: CPU, RAM, Disk, Network, Bot process info
+- /stats — Database statistics across all groups
 """
 from PglRobot.utils.help_system import register_help
 register_help("Sysinfo", __help__)

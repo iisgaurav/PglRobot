@@ -246,25 +246,25 @@ __help__ = """
 Control how the bot greets and says goodbye to users.
 
 <b>Admin Commands:</b>
-• /welcome <code><on/off></code> — Enable or disable welcome messages.
-• /goodbye <code><on/off></code> — Enable or disable goodbye messages.
-• /cleanwelcome <code><on/off></code> — Delete the old welcome message when a new one is sent.
-• /setwelcome <code><text/reply></code> — Set a custom welcome message. You can reply to a photo, video, or gif!
-• /setgoodbye <code><text/reply></code> — Set a custom goodbye message.
-• /resetwelcome — Reset welcome message to default.
-• /resetgoodbye — Reset goodbye message to default.
+- /welcome <code><on/off></code> — Enable or disable welcome messages.
+- /goodbye <code><on/off></code> — Enable or disable goodbye messages.
+- /cleanwelcome <code><on/off></code> — Delete the old welcome message when a new one is sent.
+- /setwelcome <code><text/reply></code> — Set a custom welcome message. You can reply to a photo, video, or gif!
+- /setgoodbye <code><text/reply></code> — Set a custom goodbye message.
+- /resetwelcome — Reset welcome message to default.
+- /resetgoodbye — Reset goodbye message to default.
 
-<b>Formatting Tags:</b>
+<b>Formatting Tags</b>
 You can use these tags in your custom messages:
-• <code>{first}</code> - User's first name
-• <code>{last}</code> - User's last name
-• <code>{fullname}</code> - User's full name
-• <code>{username}</code> - User's username
-• <code>{mention}</code> - Mentions the user
-• <code>{id}</code> - User's ID
-• <code>{chatname}</code> - The group's name
+- <code>{first}</code> - User's first name
+- <code>{last}</code> - User's last name
+- <code>{fullname}</code> - User's full name
+- <code>{username}</code> - User's username
+- <code>{mention}</code> - Mentions the user
+- <code>{id}</code> - User's ID
+- <code>{chatname}</code> - The group's name
 
-<b>Buttons:</b>
+<b>Buttons</b>
 You can add buttons by using this format:
 <code>[Button Text](buttonurl:https://google.com)</code>
 """

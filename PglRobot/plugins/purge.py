@@ -34,7 +34,9 @@ ADMIN = IsAdmin("can_delete_messages")
     ADMIN,
 )
 async def purge_messages(message: Message, bot: Bot, command: CommandObject | None = None):
+    logger.error("DEBUG: purge_messages STARTED")
     if not message.reply_to_message:
+        logger.error("DEBUG: No reply_to_message")
         return await message.reply(
             "Reply to a message to mark where the purge starts.\nUsage: <code>/purge</code> or <code>/purge 50</code>",
             parse_mode=ParseMode.HTML,
@@ -43,6 +45,7 @@ async def purge_messages(message: Message, bot: Bot, command: CommandObject | No
     start_time = time.perf_counter()
     start_id = message.reply_to_message.message_id
     end_id = message.message_id
+    logger.error(f"DEBUG: start_id={start_id}, end_id={end_id}")
 
     args = command.args if command else None
     if not args and message.text:
@@ -53,24 +56,30 @@ async def purge_messages(message: Message, bot: Bot, command: CommandObject | No
     if args and args.strip().isdigit():
         count = min(int(args.strip()), 1000)
         ids_to_delete = list(range(start_id, start_id + count + 1)) + [end_id]
+        logger.error(f"DEBUG: Generated count ids: len={len(ids_to_delete)}")
     else:
         ids_to_delete = list(range(start_id, end_id + 1))
+        logger.error(f"DEBUG: Generated range ids: len={len(ids_to_delete)}")
 
     # CAP HUGE PURGES to avoid DoS
     if len(ids_to_delete) > 2000:
+        logger.error("DEBUG: Cap triggered. Setting ids_to_delete to 2000")
         ids_to_delete = ids_to_delete[:2000]
 
     ids_to_delete = sorted(set(ids_to_delete))
 
     status_msg = None
     if len(ids_to_delete) > 50:
+        logger.error("DEBUG: Sending status_msg")
         status_msg = await message.answer(
             f"🗑️ Purging <code>{len(ids_to_delete)}</code> messages...",
             parse_mode=ParseMode.HTML,
         )
 
+    logger.error("DEBUG: Calling _delete_messages_in_chunks")
     deleted = await _delete_messages_in_chunks(bot, message.chat.id, ids_to_delete)
     elapsed = time.perf_counter() - start_time
+    logger.error(f"DEBUG: _delete_messages_in_chunks returned {deleted} in {elapsed}s")
 
     result = f"✅ Purged <b>{deleted}</b> messages in <code>{elapsed:.2f}s</code>"
     if deleted == 0:
@@ -87,6 +96,7 @@ async def purge_messages(message: Message, bot: Bot, command: CommandObject | No
             await notify.delete()
     except TelegramBadRequest:
         pass
+
 
 # Helpers
 # ---------------------------------------------------------------------------
@@ -159,74 +169,7 @@ async def del_not_admin(message: Message):
 #        /purge <N>    → delete N messages from reply
 # ---------------------------------------------------------------------------
 
-@purge_router.message(
-    Command("purge", prefix="/!"),
-    F.chat.type.in_({"group", "supergroup"}),
-    ADMIN,
-)
-async def purge_messages(message: Message, bot: Bot, command: CommandObject | None = None):
-    logger.error("DEBUG: purge_messages STARTED")
-    if not message.reply_to_message:
-        logger.error("DEBUG: No reply_to_message")
-        return await message.reply(
-            "Reply to a message to mark where the purge starts.\nUsage: <code>/purge</code> or <code>/purge 50</code>",
-            parse_mode=ParseMode.HTML,
-        )
-
-    start_time = time.perf_counter()
-    start_id = message.reply_to_message.message_id
-    end_id = message.message_id
-    logger.error(f"DEBUG: start_id={start_id}, end_id={end_id}")
-
-    args = command.args if command else None
-    if not args and message.text:
-        parts = message.text.split(maxsplit=1)
-        if len(parts) > 1:
-            args = parts[1]
-
-    if args and args.strip().isdigit():
-        count = min(int(args.strip()), 1000)
-        ids_to_delete = list(range(start_id, start_id + count + 1)) + [end_id]
-        logger.error(f"DEBUG: Generated count ids: len={len(ids_to_delete)}")
-    else:
-        ids_to_delete = list(range(start_id, end_id + 1))
-        logger.error(f"DEBUG: Generated range ids: len={len(ids_to_delete)}")
-
-    # CAP HUGE PURGES to avoid DoS
-    if len(ids_to_delete) > 2000:
-        logger.error("DEBUG: Cap triggered. Setting ids_to_delete to 2000")
-        ids_to_delete = ids_to_delete[:2000]
-
-    ids_to_delete = sorted(set(ids_to_delete))
-
-    status_msg = None
-    if len(ids_to_delete) > 50:
-        logger.error("DEBUG: Sending status_msg")
-        status_msg = await message.answer(
-            f"🗑️ Purging <code>{len(ids_to_delete)}</code> messages...",
-            parse_mode=ParseMode.HTML,
-        )
-
-    logger.error("DEBUG: Calling _delete_messages_in_chunks")
-    deleted = await _delete_messages_in_chunks(bot, message.chat.id, ids_to_delete)
-    elapsed = time.perf_counter() - start_time
-    logger.error(f"DEBUG: _delete_messages_in_chunks returned {deleted} in {elapsed}s")
-
-    result = f"✅ Purged <b>{deleted}</b> messages in <code>{elapsed:.2f}s</code>"
-    if deleted == 0:
-        result = "❌ Failed to purge any messages. Please check if I have <b>Delete Messages</b> permission in this group!"
-
-    try:
-        if status_msg:
-            await status_msg.edit_text(result, parse_mode=ParseMode.HTML)
-            await asyncio.sleep(4)
-            await status_msg.delete()
-        else:
-            notify = await message.answer(result, parse_mode=ParseMode.HTML)
-            await asyncio.sleep(4)
-            await notify.delete()
-    except TelegramBadRequest:
-        pass
+# Duplicate purge_messages removed
 
 
 # /purge fallback — not admin
@@ -329,14 +272,14 @@ async def purge_all(message: Message, bot: Bot):
 __help__ = """
 <b>🗑️ Purge</b>
 
-<b>Admins only:</b>
-• /del — Delete the replied-to message
-• /purge — Delete all messages from the replied message to here
-• /purge &lt;N&gt; — Delete N messages starting from the replied message
-• /purgefrom &lt;message_id&gt; — Purge from a specific message ID
+<b>Admins only</b>
+- /del — Delete the replied-to message
+- /purge — Delete all messages from the replied message to here
+- /purge &lt;N&gt; — Delete N messages starting from the replied message
+- /purgefrom &lt;message_id&gt; — Purge from a specific message ID
 
-<b>Owner only:</b>
-• /purgeall — Delete all recent messages (last 48 hours)
+<b>Owner only</b>
+- /purgeall — Delete all recent messages (last 48 hours)
 
 <b>Note:</b> Telegram only allows deleting messages newer than 48 hours.
 """

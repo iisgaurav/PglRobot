@@ -6,6 +6,7 @@
 # ==============================================================================
 
 import random
+import html
 from aiogram import Router, F
 from aiogram.types import Message
 from aiogram.filters import Command, CommandObject
@@ -29,7 +30,7 @@ async def set_afk(message: Message, command: CommandObject):
         notice = "\nYour AFK reason was shortened to 100 characters."
         
     await sql.set_afk(message.from_user.id, reason)
-    await message.reply(f"{message.from_user.first_name} is now away!{notice}")
+    await message.reply(f"{html.escape(message.from_user.first_name)} is now away!{notice}")
 
 @afk_router.message(F.text.re_match(r"(?i)^brb(.*)$"))
 async def set_afk_brb(message: Message):
@@ -44,7 +45,7 @@ async def set_afk_brb(message: Message):
         notice = "\nYour AFK reason was shortened to 100 characters."
         
     await sql.set_afk(message.from_user.id, reason)
-    await message.reply(f"{message.from_user.first_name} is now away!{notice}")
+    await message.reply(f"{html.escape(message.from_user.first_name)} is now away!{notice}")
 
 class AFKMiddleware(BaseMiddleware):
     async def __call__(
@@ -83,9 +84,9 @@ class AFKMiddleware(BaseMiddleware):
             if replied_user.id != user_id and await sql.is_afk(replied_user.id):
                 afk_data = await sql.check_afk_status(replied_user.id)
                 if afk_data and afk_data.reason:
-                    await message.reply(f"{replied_user.first_name} is afk.\nReason: <code>{afk_data.reason}</code>")
+                    await message.reply(f"{html.escape(replied_user.first_name)} is afk.\nReason: <code>{html.escape(afk_data.reason)}</code>")
                 else:
-                    await message.reply(f"{replied_user.first_name} is afk.")
+                    await message.reply(f"{html.escape(replied_user.first_name)} is afk.")
                     
         # Check mentions in text
         if message.entities:
@@ -100,9 +101,9 @@ class AFKMiddleware(BaseMiddleware):
                     if await sql.is_afk(mentioned_id):
                         afk_data = await sql.check_afk_status(mentioned_id)
                         if afk_data and afk_data.reason:
-                            await message.reply(f"{entity.user.first_name} is afk.\nReason: <code>{afk_data.reason}</code>")
+                            await message.reply(f"{html.escape(entity.user.first_name)} is afk.\nReason: <code>{html.escape(afk_data.reason)}</code>")
                         else:
-                            await message.reply(f"{entity.user.first_name} is afk.")
+                            await message.reply(f"{html.escape(entity.user.first_name)} is afk.")
                             
         return await handler(event, data)
 
@@ -110,9 +111,9 @@ class AFKMiddleware(BaseMiddleware):
 afk_router.message.middleware(AFKMiddleware())
 
 __help__ = """
-*AFK Commands:*
- • <code>/afk <reason></code>: Mark yourself as AFK.
- • <code>brb <reason></code>: Same as the afk command, but without a slash.
+<b>AFK Commands:</b>
+- <code>/afk <reason></code>: Mark yourself as AFK.
+- <code>brb <reason></code>: Same as the afk command, but without a slash.
 When marked as AFK, any mentions will be replied to with a message to say you're not available!
 """
 from PglRobot.utils.help_system import register_help
