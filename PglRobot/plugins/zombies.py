@@ -23,6 +23,11 @@ zombies_router = Router()
 ADMIN = IsAdmin("can_restrict_members")
 
 
+@zombies_router.message(Command("zombies"), F.chat.type == "private")
+async def zombies_pm_fallback(message: Message):
+    await message.reply("This command is made to be used in groups!")
+
+
 @zombies_router.message(Command("zombies"), F.chat.type.in_({"group", "supergroup"}), ADMIN)
 async def zombies_handler(message: Message, bot: Bot, command: CommandObject):
     chat_id = message.chat.id

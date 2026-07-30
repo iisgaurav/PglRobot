@@ -21,6 +21,11 @@ ADMIN_OR_OWNER = IsAdmin("can_change_info")
 # Format: {chat_id: boolean}
 TAGGING = {}
 
+@tagall_router.message(Command("tagall", "cancel"), F.chat.type == "private")
+async def tagall_pm_fallback(message: Message):
+    await message.reply("This command is made to be used in groups!")
+
+
 @tagall_router.message(
     (F.text.startswith("@all") | F.text.startswith("/tagall")),
     F.chat.type.in_({"group", "supergroup"}),

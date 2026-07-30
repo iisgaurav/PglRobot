@@ -7,7 +7,7 @@
 
 from aiogram import Router
 from aiogram.filters import Command
-from aiogram.types import Message
+from aiogram.types import Message, MessageOriginUser
 from PglRobot.database import userinfo_sql, trust_sql
 from PglRobot.config import Config
 
@@ -30,7 +30,7 @@ async def set_bio(message: Message):
 async def get_info(message: Message):
     target_user = message.from_user
     
-    if message.reply_to_message:
+    if message.reply_to_message and message.reply_to_message.from_user:
         target_user = message.reply_to_message.from_user
         
     user_id = target_user.id
@@ -70,12 +70,11 @@ async def get_info(message: Message):
         await message.reply(text)
 
 
-from aiogram.types import Message, MessageOriginUser
 
 @userinfo_router.message(Command("id"))
 async def get_id(message: Message):
     text = ""
-    if message.reply_to_message:
+    if message.reply_to_message and message.reply_to_message.from_user:
         text += f"<b>{message.reply_to_message.from_user.first_name}'s ID:</b> <code>{message.reply_to_message.from_user.id}</code>\n"
         if isinstance(message.reply_to_message.forward_origin, MessageOriginUser):
             text += f"<b>Forwarded User ID:</b> <code>{message.reply_to_message.forward_origin.sender_user.id}</code>\n"

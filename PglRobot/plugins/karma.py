@@ -6,7 +6,7 @@
 # ==============================================================================
 
 import logging
-from aiogram import Router, F, Bot
+from aiogram import Router, F
 from aiogram.dispatcher.event.bases import SkipHandler
 from aiogram.types import Message
 from aiogram.filters import Command, CommandObject
@@ -24,6 +24,11 @@ ADMIN = IsAdmin("can_change_info")
 POSITIVE_TRIGGERS = {"+", "+1", "++", "upvote", "thanks", "thx", "tq", "thank you", "pro", "legend", "hero", "great"}
 NEGATIVE_TRIGGERS = {"-", "-1", "--", "downvote", "noob", "idiot", "wtf", "shit", "bad", "worst"}
 
+@karma_router.message(Command("karmatoggle", "karma"), F.chat.type == "private")
+async def karma_pm_fallback(message: Message):
+    await message.reply("This command is made to be used in groups!")
+
+
 @karma_router.message(Command("karmatoggle"), F.chat.type.in_({"group", "supergroup"}), ADMIN)
 async def karma_toggle(message: Message, command: CommandObject):
     args = command.args.lower() if command.args else ""
@@ -31,12 +36,12 @@ async def karma_toggle(message: Message, command: CommandObject):
     
     if args in ("on", "yes", "true", "enable"):
         await sql.set_karma_state(chat_id, True)
-        await message.reply("✅ <b>Karma System Enabled!</b>\nReply to messages with <code>+1</code> or <code>-1</code> to give/take karma.", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("✅ <b>Karma System Enabled!</b>\nReply to messages with <code>+1</code> or <code>-1</code> to give/take karma.", parse_mode=ParseMode.HTML)
     elif args in ("off", "no", "false", "disable"):
         await sql.set_karma_state(chat_id, False)
-        await message.reply("❌ <b>Karma System Disabled!</b>", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("❌ <b>Karma System Disabled!</b>", parse_mode=ParseMode.HTML)
     else:
-        await message.reply("Usage: <code>/karmatoggle on</code> or <code>/karmatoggle off</code>", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("Usage: <code>/karmatoggle on</code> or <code>/karmatoggle off</code>", parse_mode=ParseMode.HTML)
 
 
 @karma_router.message(Command("karma"), F.chat.type.in_({"group", "supergroup"}))
@@ -46,11 +51,14 @@ async def check_karma(message: Message):
         return
         
     target_user = message.from_user
-    if message.reply_to_message:
+    if message.reply_to_message and message.reply_to_message.from_user:
         target_user = message.reply_to_message.from_user
         
+    if not target_user:
+        return
+        
     karma = await sql.get_karma(chat_id, target_user.id)
-    await message.reply(f"📈 <b>Karma Stats</b>\nUser: {target_user.first_name}\nKarma: <code>{karma}</code>", parse_mode=ParseMode.MARKDOWN)
+    await message.reply(f"📈 <b>Karma Stats</b>\nUser: {target_user.first_name}\nKarma: <code>{karma}</code>", parse_mode=ParseMode.HTML)
 
 
 
@@ -76,6 +84,9 @@ async def karma_handler(message: Message):
     giver = message.from_user
     receiver = message.reply_to_message.from_user
     
+    if not giver or not receiver:
+        raise SkipHandler()
+        
     if giver.id == receiver.id:
         await message.reply("You can't give karma to yourself!")
         raise SkipHandler()
@@ -88,13 +99,13 @@ async def karma_handler(message: Message):
         new_karma = await sql.update_karma(chat_id, receiver.id, 1)
         await message.reply(
             f"✨ <b>Karma Added!</b>\n{receiver.first_name} now has <code>{new_karma}</code> karma.",
-            parse_mode=ParseMode.MARKDOWN
+            parse_mode=ParseMode.HTML
         )
     elif is_negative:
         new_karma = await sql.update_karma(chat_id, receiver.id, -1)
         await message.reply(
             f"📉 <b>Karma Deducted!</b>\n{receiver.first_name} now has <code>{new_karma}</code> karma.",
-            parse_mode=ParseMode.MARKDOWN
+            parse_mode=ParseMode.HTML
         )
 
 

@@ -203,7 +203,7 @@ async def send_note(message: Message, chat_id: int, notename: str, show_none: bo
     F.chat.type == "private",
 )
 async def notes_pm_fallback(message: Message):
-    await message.reply("This command can only be used in groups.")
+    await message.reply("This command is made to be used in groups!")
 
 
 # ---------------------------------------------------------------------------

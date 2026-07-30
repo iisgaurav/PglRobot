@@ -160,7 +160,10 @@ async def cb_help(query: CallbackQuery):
     )
     if not isinstance(query.message, Message):
         return
-    await query.message.edit_caption(caption=text, parse_mode=ParseMode.HTML, reply_markup=back_keyboard())
+    if query.message.photo:
+        await query.message.edit_caption(caption=text, parse_mode=ParseMode.HTML, reply_markup=back_keyboard())
+    else:
+        await query.message.edit_text(text=text, parse_mode=ParseMode.HTML, reply_markup=back_keyboard())
     await query.answer()
 
 
@@ -169,7 +172,10 @@ async def cb_about(query: CallbackQuery):
     text = ABOUT_TEXT.format(owner=Config.OWNER_USERNAME)
     if not isinstance(query.message, Message):
         return
-    await query.message.edit_caption(caption=text, parse_mode=ParseMode.HTML, reply_markup=back_keyboard())
+    if query.message.photo:
+        await query.message.edit_caption(caption=text, parse_mode=ParseMode.HTML, reply_markup=back_keyboard())
+    else:
+        await query.message.edit_text(text=text, parse_mode=ParseMode.HTML, reply_markup=back_keyboard())
     await query.answer()
 
 
@@ -179,9 +185,16 @@ async def cb_back(query: CallbackQuery, bot: Bot):
     caption = get_start_caption(query.from_user.first_name or "there")
     if not isinstance(query.message, Message):
         return
-    await query.message.edit_caption(
-        caption=caption,
-        parse_mode=ParseMode.HTML,
-        reply_markup=start_keyboard(bot_username),
-    )
+    if query.message.photo:
+        await query.message.edit_caption(
+            caption=caption,
+            parse_mode=ParseMode.HTML,
+            reply_markup=start_keyboard(bot_username),
+        )
+    else:
+        await query.message.edit_text(
+            text=caption,
+            parse_mode=ParseMode.HTML,
+            reply_markup=start_keyboard(bot_username),
+        )
     await query.answer()

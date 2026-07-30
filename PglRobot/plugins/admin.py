@@ -36,7 +36,7 @@ BOT_CAN_RESTRICT = BotCan("can_restrict_members")
     F.chat.type == "private",
 )
 async def group_only_pm(message: Message):
-    await message.reply("This command can only be used in groups.")
+    await message.reply("This command is made to be used in groups!")
 
 
 # ============================================================

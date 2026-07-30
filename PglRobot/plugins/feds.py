@@ -35,6 +35,11 @@ async def new_fed(message: Message, command: CommandObject):
         parse_mode=ParseMode.HTML
     )
 
+@feds_router.message(Command("joinfed", "leavefed", "fban", "unfban"), F.chat.type == "private")
+async def feds_pm_fallback(message: Message):
+    await message.reply("This command is made to be used in groups!")
+
+
 @feds_router.message(Command("joinfed"), F.chat.type.in_({"group", "supergroup"}), CREATOR)
 async def join_fed_cmd(message: Message, command: CommandObject):
     fed_id = command.args

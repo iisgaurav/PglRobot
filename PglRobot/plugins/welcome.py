@@ -137,41 +137,46 @@ async def welcome_goodbye_handler(event: ChatMemberUpdated, bot: Bot):
 
 
 # Commands
+@welcome_router.message(Command("welcome", "goodbye", "cleanwelcome", "setwelcome", "setgoodbye", "resetwelcome", "resetgoodbye"), F.chat.type == "private")
+async def welcome_pm_fallback(message: Message):
+    await message.reply("This command is made to be used in groups!")
+
+
 @welcome_router.message(Command("welcome"), F.chat.type.in_({"group", "supergroup"}), ADMIN)
 async def welcome_toggle(message: Message, command: CommandObject):
     args = command.args.lower() if command.args else ""
     if args in ("on", "yes", "true"):
         await sql.set_welcome_status(message.chat.id, True)
-        await message.reply("✅ Welcome messages are now <b>enabled</b>.", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("✅ Welcome messages are now <b>enabled</b>.", parse_mode=ParseMode.HTML)
     elif args in ("off", "no", "false"):
         await sql.set_welcome_status(message.chat.id, False)
-        await message.reply("❌ Welcome messages are now <b>disabled</b>.", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("❌ Welcome messages are now <b>disabled</b>.", parse_mode=ParseMode.HTML)
     else:
-        await message.reply("Usage: <code>/welcome on</code> or <code>/welcome off</code>", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("Usage: <code>/welcome on</code> or <code>/welcome off</code>", parse_mode=ParseMode.HTML)
 
 @welcome_router.message(Command("goodbye"), F.chat.type.in_({"group", "supergroup"}), ADMIN)
 async def goodbye_toggle(message: Message, command: CommandObject):
     args = command.args.lower() if command.args else ""
     if args in ("on", "yes", "true"):
         await sql.set_goodbye_status(message.chat.id, True)
-        await message.reply("✅ Goodbye messages are now <b>enabled</b>.", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("✅ Goodbye messages are now <b>enabled</b>.", parse_mode=ParseMode.HTML)
     elif args in ("off", "no", "false"):
         await sql.set_goodbye_status(message.chat.id, False)
-        await message.reply("❌ Goodbye messages are now <b>disabled</b>.", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("❌ Goodbye messages are now <b>disabled</b>.", parse_mode=ParseMode.HTML)
     else:
-        await message.reply("Usage: <code>/goodbye on</code> or <code>/goodbye off</code>", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("Usage: <code>/goodbye on</code> or <code>/goodbye off</code>", parse_mode=ParseMode.HTML)
 
 @welcome_router.message(Command("cleanwelcome"), F.chat.type.in_({"group", "supergroup"}), ADMIN)
 async def cleanwelcome_toggle(message: Message, command: CommandObject):
     args = command.args.lower() if command.args else ""
     if args in ("on", "yes", "true"):
         await sql.set_clean_welcome(message.chat.id, True)
-        await message.reply("✅ Clean welcome is now <b>enabled</b>. I will delete the old welcome message when a new one is sent.", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("✅ Clean welcome is now <b>enabled</b>. I will delete the old welcome message when a new one is sent.", parse_mode=ParseMode.HTML)
     elif args in ("off", "no", "false"):
         await sql.set_clean_welcome(message.chat.id, False)
-        await message.reply("❌ Clean welcome is now <b>disabled</b>.", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("❌ Clean welcome is now <b>disabled</b>.", parse_mode=ParseMode.HTML)
     else:
-        await message.reply("Usage: <code>/cleanwelcome on</code> or <code>/cleanwelcome off</code>", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("Usage: <code>/cleanwelcome on</code> or <code>/cleanwelcome off</code>", parse_mode=ParseMode.HTML)
 
 @welcome_router.message(Command("setwelcome"), F.chat.type.in_({"group", "supergroup"}), ADMIN)
 async def set_welcome(message: Message, command: CommandObject):

@@ -30,7 +30,16 @@ class DisableMiddleware(BaseMiddleware):
             command = command_parts[0][1:].lower()
             
             if await is_command_disabled(chat_id, command):
-                # The command is disabled in this chat.
+                # Check if the sender is an admin or sudo user (they bypass disabled commands)
+                if event.message.from_user:
+                    from PglRobot.config import Config
+                    from PglRobot.utils.admin_filters import check_if_admin
+                    
+                    is_sudo = event.message.from_user.id in Config.SUDO_USERS or event.message.from_user.id == Config.OWNER_ID
+                    if is_sudo or await check_if_admin(event.message.chat, event.message.from_user.id):
+                        return await handler(event, data)
+                
+                # The command is disabled in this chat and sender is a normal user.
                 # Returning None means we swallow the event and stop propagation.
                 return None
                 

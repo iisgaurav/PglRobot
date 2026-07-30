@@ -18,7 +18,7 @@ ADMIN_OR_OWNER = IsAdmin("can_change_info")
 
 @rules_router.message(Command("rules", "setrules", "clearrules"), F.chat.type == "private")
 async def pm_fallback(message: Message):
-    await message.reply("This command can only be used in groups.")
+    await message.reply("This command is made to be used in groups!")
 
 
 @rules_router.message(Command("rules"), F.chat.type.in_({"group", "supergroup"}))
@@ -40,6 +40,8 @@ async def get_rules_group(message: Message, bot: Bot):
     
     await message.reply("Please click the button below to see the rules.", reply_markup=keyboard)
 
+
+from aiogram.dispatcher.event.bases import SkipHandler
 
 @rules_router.message(CommandStart(deep_link=True))
 async def get_rules_pm(message: Message, command: CommandObject, bot: Bot):
@@ -63,6 +65,8 @@ async def get_rules_pm(message: Message, command: CommandObject, bot: Bot):
             await message.reply(text)
         else:
             await message.reply("The group admins haven't set any rules for this chat yet.")
+    else:
+        raise SkipHandler()
 
 
 @rules_router.message(Command("setrules"), F.chat.type.in_({"group", "supergroup"}), ADMIN_OR_OWNER)

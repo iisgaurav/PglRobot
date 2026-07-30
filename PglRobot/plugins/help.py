@@ -12,7 +12,7 @@ from aiogram.filters import Command, CommandStart, CommandObject
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters.callback_data import CallbackData
 from aiogram.utils.deep_linking import create_start_link
-
+from aiogram.dispatcher.event.bases import SkipHandler
 from PglRobot.utils.help_system import get_all_modules, get_help
 
 help_router = Router()
@@ -34,7 +34,7 @@ def get_help_keyboard(page: int = 0) -> InlineKeyboardMarkup:
 
     keyboard = []
     row = []
-    for i, mod in enumerate(current_modules):
+    for mod in current_modules:
         # Include current page in callback data to allow returning to same page
         row.append(InlineKeyboardButton(text=mod, callback_data=HelpCallback(action="module", module=mod, page=page).pack()))
         if len(row) == 2:
@@ -77,11 +77,14 @@ async def help_group(message: Message, bot: Bot):
 async def help_pm(message: Message):
     await message.reply(HELP_STRINGS, reply_markup=get_help_keyboard(0), parse_mode="HTML")
 
+
 @help_router.message(CommandStart(deep_link=True))
 async def start_help_pm(message: Message, command: CommandObject):
     payload = command.args
     if payload == "help":
         await message.reply(HELP_STRINGS, reply_markup=get_help_keyboard(0), parse_mode="HTML")
+    else:
+        raise SkipHandler()
 
 @help_router.callback_query(HelpCallback.filter(F.action == "page"))
 async def help_page_callback(query: CallbackQuery, callback_data: HelpCallback):

@@ -20,6 +20,11 @@ ADMIN_OR_OWNER = IsAdmin("can_change_info")
 # These commands cannot be disabled to prevent soft-locking the bot
 NON_DISABLEABLE = ["enable", "disable", "disabled", "help", "start"]
 
+@disable_router.message(Command("disable", "enable", "disabled"), F.chat.type == "private")
+async def disable_pm_fallback(message: Message):
+    await message.reply("This command is made to be used in groups!")
+
+
 @disable_router.message(
     Command("disable"),
     F.chat.type.in_({"group", "supergroup"}),

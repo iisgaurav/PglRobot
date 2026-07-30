@@ -19,6 +19,11 @@ reports_router = Router()
 ADMIN_OR_OWNER = IsAdmin("can_change_info")
 
 
+@reports_router.message(Command("reports", "report"), F.chat.type == "private")
+async def reports_pm_fallback(message: Message):
+    await message.reply("This command is made to be used in groups!")
+
+
 @reports_router.message(
     Command("reports", "report"), 
     F.chat.type.in_({"group", "supergroup"}), 
@@ -53,6 +58,9 @@ async def report_message(message: Message, bot: Bot):
     user = message.from_user
     chat = message.chat
     
+    if not user:
+        return
+        
     # Check if reports are enabled in this chat
     if not await sql.chat_should_report(chat.id):
         return

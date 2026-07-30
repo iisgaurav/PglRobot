@@ -80,10 +80,10 @@ async def disconnect_chat(message: Message):
 async def check_connection(message: Message):
     if message.chat.type != "private":
         return await message.reply("The <code>/connection</code> command must be used in a private message.")
-        
     chat_id, chat_title = await resolve_chat(message)
     if chat_id:
-        await message.reply(f"You are currently connected to: <b>{html.escape(chat_title or '')}</b> (<code>{chat_id}</code>)")
+        escaped_title = html.escape(chat_title or "")
+        await message.reply(f"You are currently connected to: <b>{escaped_title}</b> (<code>{chat_id}</code>)")
     else:
         await message.reply("You are not connected to any chat. Use <code>/connect [chat_id]</code> to connect.")
 

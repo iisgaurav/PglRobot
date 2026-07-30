@@ -17,13 +17,13 @@ approvals_router = Router()
 async def approve_user(message: Message):
     chat_id = message.chat.id
     if message.chat.type == "private":
-        return await message.reply("This command is made to be used in groups, not in PM!")
+        return await message.reply("This command is made to be used in groups!")
     
     if not await is_admin(message, message.from_user.id):
         return await message.reply("You need to be an admin to do this.")
     
     target_user_id = None
-    if message.reply_to_message:
+    if message.reply_to_message and message.reply_to_message.from_user:
         target_user_id = message.reply_to_message.from_user.id
     elif len(message.text.split()) > 1:
         try:
@@ -42,13 +42,13 @@ async def approve_user(message: Message):
 async def disapprove_user(message: Message):
     chat_id = message.chat.id
     if message.chat.type == "private":
-        return await message.reply("This command is made to be used in groups, not in PM!")
+        return await message.reply("This command is made to be used in groups!")
     
     if not await is_admin(message, message.from_user.id):
         return await message.reply("You need to be an admin to do this.")
     
     target_user_id = None
-    if message.reply_to_message:
+    if message.reply_to_message and message.reply_to_message.from_user:
         target_user_id = message.reply_to_message.from_user.id
     elif len(message.text.split()) > 1:
         try:
@@ -70,7 +70,7 @@ async def disapprove_user(message: Message):
 async def list_approved(message: Message):
     chat_id = message.chat.id
     if message.chat.type == "private":
-        return await message.reply("This command is made to be used in groups, not in PM!")
+        return await message.reply("This command is made to be used in groups!")
         
     if not await is_admin(message, message.from_user.id):
         return await message.reply("You need to be an admin to do this.")

@@ -6,8 +6,7 @@
 # ==============================================================================
 
 import logging
-import asyncio
-from aiogram import Router, F, Bot
+from aiogram import Router, Bot
 from aiogram.types import Message, ChatMemberUpdated
 from aiogram.filters import Command, CommandObject
 from aiogram.enums import ParseMode, ChatMemberStatus
@@ -36,7 +35,7 @@ async def gban_user(message: Message, command: CommandObject, bot: Bot):
     target_user = None
     reason = args
     
-    if message.reply_to_message:
+    if message.reply_to_message and message.reply_to_message.from_user:
         target_user = message.reply_to_message.from_user
     elif args:
         parts = args.split(" ", 1)
@@ -63,7 +62,7 @@ async def gban_user(message: Message, command: CommandObject, bot: Bot):
     
     await message.reply(
         f"🚨 <b>Global Ban Executed!</b>\n\n<b>User:</b> {target_user.first_name} (<code>{target_user.id}</code>)\n<b>Reason:</b> {reason or 'No reason provided'}",
-        parse_mode=ParseMode.MARKDOWN
+        parse_mode=ParseMode.HTML
     )
     
     # Optionally, we could iterate over all chats the bot is in and ban them.
@@ -74,7 +73,7 @@ async def ungban_user(message: Message, command: CommandObject, bot: Bot):
     args = command.args
     target_user = None
     
-    if message.reply_to_message:
+    if message.reply_to_message and message.reply_to_message.from_user:
         target_user = message.reply_to_message.from_user
     elif args:
         try:
@@ -92,7 +91,7 @@ async def ungban_user(message: Message, command: CommandObject, bot: Bot):
     await sql.remove_gban(target_user.id)
     GBANNED_USERS.remove(target_user.id)
     
-    await message.reply(f"✅ <b>Global Ban Removed for:</b> {target_user.first_name} (<code>{target_user.id}</code>)", parse_mode=ParseMode.MARKDOWN)
+    await message.reply(f"✅ <b>Global Ban Removed for:</b> {target_user.first_name} (<code>{target_user.id}</code>)", parse_mode=ParseMode.HTML)
 
 # Passive GBan Enforcement when they join
 @gban_router.chat_member()

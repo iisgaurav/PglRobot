@@ -20,6 +20,11 @@ ADMIN_OR_OWNER = IsAdmin("can_restrict_members")
 BOT_CAN_RESTRICT = BotCan("can_restrict_members")
 
 
+@antiraid_router.message(Command("antiraid"), F.chat.type == "private")
+async def antiraid_pm_fallback(message: Message):
+    await message.reply("This command is made to be used in groups!")
+
+
 @antiraid_router.message(
     Command("antiraid"),
     F.chat.type.in_({"group", "supergroup"}),

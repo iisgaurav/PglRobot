@@ -110,7 +110,7 @@ async def toggle_antispam(message: Message):
     F.chat.type == "private",
 )
 async def antispam_pm(message: Message):
-    await message.reply("This command can only be used in groups.")
+    await message.reply("This command is made to be used in groups!")
 
 
 # ---------------------------------------------------------------------------

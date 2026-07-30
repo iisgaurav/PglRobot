@@ -126,7 +126,7 @@ async def _delete_messages_in_chunks(bot: Bot, chat_id: int, message_ids: list[i
     F.chat.type == "private",
 )
 async def purge_pm(message: Message):
-    await message.reply("This command can only be used in groups.")
+    await message.reply("This command is made to be used in groups!")
 
 
 # ---------------------------------------------------------------------------

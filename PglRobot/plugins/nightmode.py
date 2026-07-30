@@ -6,7 +6,7 @@
 # ==============================================================================
 
 import logging
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.schedulers.asyncio import AsyncIOScheduler  # type: ignore
 from aiogram import Router, F, Bot
 from aiogram.types import Message, ChatPermissions
 from aiogram.filters import Command, CommandObject
@@ -56,6 +56,11 @@ NIGHT_UNLOCKED_PERMS = ChatPermissions(
     can_pin_messages=False
 )
 
+@nightmode_router.message(Command("nightmode"), F.chat.type == "private")
+async def nightmode_pm_fallback(message: Message):
+    await message.reply("This command is made to be used in groups!")
+
+
 @nightmode_router.message(Command("nightmode"), F.chat.type.in_({"group", "supergroup"}), ADMIN)
 async def nightmode_cmd(message: Message, command: CommandObject):
     args = command.args.lower() if command.args else ""
@@ -68,16 +73,16 @@ async def nightmode_cmd(message: Message, command: CommandObject):
         await sql.set_nightmode(chat_id, True)
         await message.reply(
             f"✅ <b>Night Mode Enabled!</b>\n\nThis group will now automatically lock at <b>12:00 AM (IST)</b> and unlock at <b>6:00 AM (IST)</b>.",
-            parse_mode=ParseMode.MARKDOWN
+            parse_mode=ParseMode.HTML
         )
     elif args in ("off", "no", "false", "disable"):
         if not await sql.is_nightmode_enabled(chat_id):
             return await message.reply("Night Mode is already disabled in this chat.")
             
         await sql.set_nightmode(chat_id, False)
-        await message.reply("❌ <b>Night Mode Disabled!</b>", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("❌ <b>Night Mode Disabled!</b>", parse_mode=ParseMode.HTML)
     else:
-        await message.reply("Usage: <code>/nightmode on</code> or <code>/nightmode off</code>", parse_mode=ParseMode.MARKDOWN)
+        await message.reply("Usage: <code>/nightmode on</code> or <code>/nightmode off</code>", parse_mode=ParseMode.HTML)
 
 
 async def job_lock(bot: Bot):

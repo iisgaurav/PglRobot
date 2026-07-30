@@ -93,7 +93,7 @@ def log_action(
     F.chat.type == "private",
 )
 async def log_pm(message: Message):
-    await message.reply("This command can only be used in groups.")
+    await message.reply("This command is made to be used in groups!")
 
 
 # ---------------------------------------------------------------------------

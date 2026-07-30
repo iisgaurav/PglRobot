@@ -20,7 +20,7 @@ BOT_CAN_RESTRICT = BotCan("can_restrict_members")
 
 @bans_router.message(Command("ban", "b", "unban", "kick", "k", "mute", "m", "unmute"), F.chat.type == "private")
 async def pm_fallback(message: Message):
-    await message.reply("This command can only be used in groups.")
+    await message.reply("This command is made to be used in groups!")
 
 
 @bans_router.message(Command("ban", "b"), F.chat.type.in_({"group", "supergroup"}), ADMIN_OR_OWNER, BOT_CAN_RESTRICT)
